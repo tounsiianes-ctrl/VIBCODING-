@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>McDonald's — L'Expérience Premium 4K</title>
+<style>
+  :root{ --red:#da291c; --gold:#ffc72c; --dark:#0d0d0d; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Segoe UI','Helvetica Neue',system-ui,sans-serif;background:var(--dark);color:#fff;overflow-x:hidden;}
+  a{text-decoration:none;color:inherit;}
+  img{display:block;max-width:100%;}
+  button{font-family:inherit;cursor:pointer;border:none;}
+
+  /* ── Préchargeur ── */
+  #preloader{position:fixed;inset:0;background:var(--dark);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s;}
+  #preloader .arch{font-size:90px;font-weight:900;color:var(--gold);animation:pulse 1.2s infinite;}
+  #preloader p{margin-top:10px;letter-spacing:3px;font-size:13px;opacity:.6;}
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.08);opacity:.7;}}
+
+  /* ── Navbar ── */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+       padding:22px 50px;transition:.4s;}
+  .nav.scrolled{padding:14px 50px;background:rgba(13,13,13,.85);backdrop-filter:blur(14px);box-shadow:0 4px 30px rgba(0,0,0,.4);}
+  .nav .logo{font-size:30px;font-weight:900;color:var(--gold);letter-spacing:-1px;}
+  .nav .logo span{color:var(--red);}
+  .nav .links a{margin-left:30px;font-weight:600;font-size:15px;opacity:.82;transition:.2s;position:relative;}
+  .nav .links a:hover{opacity:1;color:var(--gold);}
+  .nav .order-btn{margin-left:34px;background:var(--gold);color:#000;padding:11px 26px;border-radius:40px;font-weight:800;font-size:14px;transition:.25s;}
+  .nav .order-btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(255,199,44,.4);}
+
+  /* ── Hero 4K ── */
+  .hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:center;overflow:hidden;}
+  .hero .bg{position:absolute;inset:0;
+    background:url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=2400&q=90') center/cover no-repeat;
+    transform:scale(1.1);animation:zoomSlow 18s ease-in-out infinite alternate;}
+  @keyframes zoomSlow{from{transform:scale(1.1)}to{transform:scale(1.22)}}
+  .hero .veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,13,13,.92) 0%,rgba(13,13,13,.6) 45%,rgba(13,13,13,.15) 100%);}
+  .hero .content{position:relative;z-index:5;padding:0 50px;max-width:680px;}
+  .hero .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(218,41,28,.9);padding:8px 18px;border-radius:40px;font-weight:700;font-size:13px;letter-spacing:1px;margin-bottom:24px;}
+  .hero .badge .dot{width:8px;height:8px;background:#fff;border-radius:50%;animation:pulse 1s infinite;}
+  .hero h1{font-size:84px;line-height:.95;font-weight:900;letter-spacing:-2px;margin-bottom:24px;}
+  .hero h1 .g{color:var(--gold);} .hero h1 .r{color:var(--red);}
+  .hero p{font-size:20px;line-height:1.6;opacity:.88;margin-bottom:36px;max-width:520px;}
+  .hero .ctas{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn-primary{background:var(--gold);color:#000;padding:17px 40px;border-radius:50px;font-weight:800;font-size:16px;transition:.25s;}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(255,199,44,.4);}
+  .btn-ghost{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.3);color:#fff;padding:17px 36px;border-radius:50px;font-weight:700;font-size:16px;backdrop-filter:blur(6px);transition:.25s;}
+  .btn-ghost:hover{background:rgba(255,255,255,.2);}
+  .scroll-ind{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:5;font-size:12px;letter-spacing:2px;opacity:.5;text-align:center;}
+  .scroll-ind .mouse{width:24px;height:38px;border:2px solid #fff;border-radius:14px;margin:0 auto 8px;position:relative;}
+  .scroll-ind .mouse::after{content:'';position:absolute;top:7px;left:50%;transform:translateX(-50%);width:4px;height:7px;background:#fff;border-radius:2px;animation:scrolldot 1.5s infinite;}
+  @keyframes scrolldot{0%{opacity:1;top:7px}100%{opacity:0;top:18px}}
+
+  /* ── Sections génériques ── */
+  .reveal{opacity:0;transform:translateY(40px);transition:.8s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+  .section{padding:110px 50px;max-width:1280px;margin:auto;}
+  .eyebrow{color:var(--gold);font-weight:800;letter-spacing:3px;font-size:13px;text-transform:uppercase;margin-bottom:14px;}
+  .h2{font-size:54px;font-weight:900;letter-spacing:-1.5px;line-height:1.05;}
+  .h2 .g{color:var(--gold);}
+
+  /* ── Produit vedette ── */
+  .feature{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .feature .img-wrap{position:relative;border-radius:28px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.6);}
+  .feature .img-wrap img{width:100%;height:560px;object-fit:cover;transition:.6s;}
+  .feature .img-wrap:hover img{transform:scale(1.06);}
+  .feature .img-wrap .price-tag{position:absolute;bottom:24px;right:24px;background:var(--red);padding:14px 26px;border-radius:18px;font-size:30px;font-weight:900;box-shadow:0 10px 30px rgba(0,0,0,.5);}
+  .feature p{font-size:18px;line-height:1.8;opacity:.82;margin:22px 0 30px;}
+  .feature .specs{display:flex;gap:30px;margin-bottom:32px;}
+  .feature .specs div{text-align:center;}
+  .feature .specs .n{font-size:32px;font-weight:900;color:var(--gold);}
+  .feature .specs .l{font-size:13px;opacity:.6;}
+
+  /* ── Menu 4K ── */
+  .menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:30px;margin-top:60px;}
+  .card{background:#161616;border-radius:24px;overflow:hidden;transition:.35s;border:1px solid #222;}
+  .card:hover{transform:translateY(-10px);box-shadow:0 30px 60px rgba(0,0,0,.6);border-color:var(--gold);}
+  .card .ph{height:240px;overflow:hidden;position:relative;}
+  .card .ph img{width:100%;height:100%;object-fit:cover;transition:.6s;}
+  .card:hover .ph img{transform:scale(1.12);}
+  .card .ph .k4{position:absolute;top:14px;left:14px;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);padding:5px 12px;border-radius:20px;font-size:11px;font-weight:800;letter-spacing:1px;color:var(--gold);}
+  .card .info{padding:24px;}
+  .card .info h3{font-size:23px;margin-bottom:8px;}
+  .card .info p{opacity:.6;font-size:14px;margin-bottom:18px;min-height:42px;}
+  .card .info .bottom{display:flex;align-items:center;justify-content:space-between;}
+  .card .info .price{font-size:28px;font-weight:900;color:var(--gold);}
+  .card .info .add{background:var(--red);color:#fff;padding:11px 22px;border-radius:30px;font-weight:700;font-size:14px;transition:.2s;}
+  .card .info .add:hover{background:#ff3b2d;transform:scale(1.05);}
+
+  /* ── Bandeau parallax ── */
+  .parallax{position:relative;height:440px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+  .parallax .bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1552566626-52f8b828add9?w=2400&q=85') center/cover fixed;}
+  .parallax .veil{position:absolute;inset:0;background:rgba(218,41,28,.78);}
+  .parallax .c{position:relative;z-index:3;padding:0 20px;}
+  .parallax h2{font-size:56px;font-weight:900;margin-bottom:16px;letter-spacing:-1px;}
+  .parallax p{font-size:20px;opacity:.95;margin-bottom:30px;}
+
+  /* ── Stats ── */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center;}
+  .stats .s .n{font-size:56px;font-weight:900;color:var(--gold);letter-spacing:-2px;}
+  .stats .s .l{font-size:15px;opacity:.65;margin-top:6px;}
+
+  /* ── Footer ── */
+  footer{background:#080808;padding:70px 50px 40px;}
+  .foot-grid{max-width:1280px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px;}
+  footer .logo{font-size:30px;font-weight:900;color:var(--gold);margin-bottom:16px;}
+  footer .logo span{color:var(--red);}
+  footer h4{font-size:15px;margin-bottom:16px;color:var(--gold);}
+  footer ul{list-style:none;} footer li{opacity:.6;margin-bottom:10px;font-size:14px;cursor:pointer;transition:.2s;}
+  footer li:hover{opacity:1;color:var(--gold);}
+  footer .copy{max-width:1280px;margin:auto;border-top:1px solid #1c1c1c;padding-top:26px;text-align:center;opacity:.5;font-size:13px;line-height:1.7;}
+  footer .copy b{color:var(--gold);}
+
+  @media(max-width:900px){
+    .feature{grid-template-columns:1fr;} .stats{grid-template-columns:repeat(2,1fr);gap:40px;}
+    .foot-grid{grid-template-columns:1fr 1fr;} .parallax .bg{background-attachment:scroll;}
+  }
+  @media(max-width:768px){
+    .nav{padding:16px 22px;} .nav .links,.nav .order-btn{display:none;}
+    .hero .content{padding:0 22px;} .hero h1{font-size:48px;} .hero p{font-size:17px;}
+    .section{padding:70px 22px;} .h2{font-size:36px;} .parallax h2{font-size:36px;}
+  }
+</style>
+</head>
+<body>
+
+<div id="preloader"><div class="arch">M</div><p>CHARGEMENT 4K…</p></div>
+
+<nav class="nav" id="nav">
+  <div class="logo">M<span>c</span>Donald's</div>
+  <div class="links">
+    <a href="#feature">Le Big Mac</a>
+    <a href="#menu">Menu</a>
+    <a href="#stats">L'enseigne</a>
+    <a href="#contact">Contact</a>
+    <button class="order-btn">Commander</button>
+  </div>
+</nav>
+
+<!-- HERO 4K -->
+<header class="hero">
+  <div class="bg"></div>
+  <div class="veil"></div>
+  <div class="content">
+    <div class="badge"><span class="dot"></span>QUALITÉ 4K ULTRA HD</div>
+    <h1>Plus qu'un burger.<br>Une <span class="g">légende</span>.</h1>
+    <p>Découvrez nos classiques capturés en haute définition. Des ingrédients frais, un goût inimitable, une expérience visuelle premium.</p>
+    <div class="ctas">
+      <a href="#menu" class="btn-primary">Découvrir le menu 🍔</a>
+      <a href="#feature" class="btn-ghost">Le Big Mac en détail</a>
+    </div>
+  </div>
+  <div class="scroll-ind"><div class="mouse"></div>DÉFILER</div>
+</header>
+
+<!-- PRODUIT VEDETTE -->
+<section class="section feature" id="feature">
+  <div class="img-wrap reveal">
+    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=2000&q=90" alt="Big Mac 4K">
+    <div class="price-tag">5,90 €</div>
+  </div>
+  <div class="reveal">
+    <div class="eyebrow">Le grand classique</div>
+    <h2 class="h2">Le <span class="g">Big Mac</span></h2>
+    <p>Deux steaks hachés 100% pur bœuf, la sauce Big Mac signature, de la salade croquante, du fromage fondant, des oignons et des cornichons, le tout dans un pain moelleux aux graines de sésame. Un équilibre parfait, inchangé depuis 1968.</p>
+    <div class="specs">
+      <div><div class="n">2×</div><div class="l">Steaks bœuf</div></div>
+      <div><div class="n">550</div><div class="l">Calories</div></div>
+      <div><div class="n">100%</div><div class="l">Pur bœuf</div></div>
+    </div>
+    <a href="#menu" class="btn-primary">Je commande</a>
+  </div>
+</section>
+
+<!-- MENU 4K -->
+<section class="section" id="menu">
+  <div style="text-align:center" class="reveal">
+    <div class="eyebrow">Notre carte</div>
+    <h2 class="h2">Le Menu en <span class="g">4K</span></h2>
+  </div>
+  <div class="menu-grid" id="menuGrid"></div>
+</section>
+
+<!-- PARALLAX -->
+<section class="parallax">
+  <div class="bg"></div><div class="veil"></div>
+  <div class="c reveal">
+    <h2>Menu Maxi Best Of™ — 8,90 €</h2>
+    <p>Un Big Mac, des frites moyennes et une boisson au choix.</p>
+    <a href="#menu" class="btn-primary">J'en profite</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section" id="stats">
+  <div class="stats">
+    <div class="s reveal"><div class="n" data-count="38000">0</div><div class="l">Restaurants dans le monde</div></div>
+    <div class="s reveal"><div class="n" data-count="120">0</div><div class="l">Pays</div></div>
+    <div class="s reveal"><div class="n" data-count="69">0</div><div class="l">Millions de clients / jour</div></div>
+    <div class="s reveal"><div class="n" data-count="1955">0</div><div class="l">Depuis</div></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="foot-grid">
+    <div>
+      <div class="logo">M<span>c</span>Donald's</div>
+      <p style="opacity:.6;font-size:14px;line-height:1.7;max-width:300px">L'expérience burger premium en haute définition. Ouvert 7j/7 de 8h à minuit. McDrive disponible.</p>
+    </div>
+    <div><h4>Menu</h4><ul><li>Burgers</li><li>Frites</li><li>Boissons</li><li>Desserts</li></ul></div>
+    <div><h4>Infos</h4><ul><li>Nous trouver</li><li>McDrive</li><li>Livraison</li><li>Recrutement</li></ul></div>
+    <div><h4>Contact</h4><ul><li>📍 12 Av. des Champs, Paris</li><li>📞 01 23 45 67 89</li><li>✉️ contact@mcdo.fr</li></ul></div>
+  </div>
+  <div class="copy">
+    © 2026 McDonald's 4K — Site de démonstration premium créé par <b>allis ia</b>.<br>
+    Projet de démonstration à but pédagogique (non affilié officiellement à McDonald's Corporation).
+  </div>
+</footer>
+
+<script>
+// Données menu — vraies photos haute définition
+const MENU=[
+  {n:'Big Mac', d:'Deux steaks, sauce signature, cornichons.', p:'5,90 €', img:'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=1400&q=90'},
+  {n:'McChicken Deluxe', d:'Filet de poulet pané, salade, mayo.', p:'5,50 €', img:'https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=1400&q=90'},
+  {n:'Frites Maison', d:'Croustillantes dehors, fondantes dedans.', p:'2,50 €', img:'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=1400&q=90'},
+  {n:'McNuggets ×9', d:'Poulet tendre, sauce au choix.', p:'5,80 €', img:'https://images.unsplash.com/photo-1562967914-608f82629710?w=1400&q=90'},
+  {n:'Coca-Cola', d:'Bien frais, format au choix.', p:'2,20 €', img:'https://images.unsplash.com/photo-1554866585-cd94860890b7?w=1400&q=90'},
+  {n:'Sundae Caramel', d:'Glace vanille, coulis gourmand.', p:'2,90 €', img:'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=1400&q=90'},
+  {n:'Cheeseburger', d:'Le grand classique fondant.', p:'2,00 €', img:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1400&q=90'},
+  {n:'Salade César', d:'Fraîcheur, poulet grillé, parmesan.', p:'6,50 €', img:'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1400&q=90'},
+];
+document.getElementById('menuGrid').innerHTML = MENU.map(m=>`
+  <div class="card reveal">
+    <div class="ph"><span class="k4">4K ULTRA HD</span><img src="${m.img}" alt="${m.n}" loading="lazy"></div>
+    <div class="info"><h3>${m.n}</h3><p>${m.d}</p>
+      <div class="bottom"><span class="price">${m.p}</span><button class="add" onclick="order('${m.n}')">+ Ajouter</button></div>
+    </div>
+  </div>`).join('');
+
+function order(n){ alert('🍔 « '+n+' » ajouté à votre commande !\n(Démo — créé par allis ia)'); }
+
+// Préchargeur
+window.addEventListener('load',()=>{ const p=document.getElementById('preloader'); p.style.opacity='0'; setTimeout(()=>p.style.display='none',600); });
+
+// Nav au scroll
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled', scrollY>40));
+
+// Apparition au scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Compteurs animés
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){ const el=e.target,tgt=+el.dataset.count; let c=0; const step=tgt/60;
+    const t=setInterval(()=>{ c+=step; if(c>=tgt){c=tgt;clearInterval(t);} el.textContent=Math.floor(c).toLocaleString('fr-FR'); },20);
+    cio.unobserve(el); }
+}),{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+</script>
+</body>
+</html>
