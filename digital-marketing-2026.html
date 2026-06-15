@@ -3,1943 +3,1155 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Digital Marketing 2026 — Guide Stratégique Premium</title>
+<title>Digital Marketing Maîtrisé 2026</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; }
 
 :root {
-  --black: #080808;
-  --dark: #0f0f0f;
-  --dark-2: #151515;
-  --dark-3: #1c1c1c;
-  --dark-4: #242424;
-  --gold: #c9a84c;
-  --gold-light: #e8c97a;
-  --gold-dark: #9a7a2e;
-  --white: #f5f0e8;
-  --white-dim: #c8c0b0;
-  --white-muted: #7a7060;
-  --accent-red: #8b1a1a;
-  --accent-blue: #1a3a5c;
-  --page-width: 210mm;
-  --page-height: 297mm;
-  --margin: 22mm;
-  --inner-margin: 28mm;
+  --W: 210mm;
+  --H: 297mm;
+  --black:  #070707;
+  --dark1:  #0e0e0e;
+  --dark2:  #141414;
+  --dark3:  #1c1c1c;
+  --dark4:  #242424;
+  --dark5:  #2e2e2e;
+  --gold:   #c9a84c;
+  --goldL:  #e4c97a;
+  --goldD:  #8a6b25;
+  --white:  #f2ede4;
+  --dimW:   #b8b0a0;
+  --mutW:   #686058;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background:#111; }
 
-html { font-size: 11pt; }
-
-body {
-  font-family: 'Inter', sans-serif;
-  background: #1a1a1a;
-  color: var(--white);
-  line-height: 1.75;
-}
-
-/* ===== PAGE SYSTEM ===== */
-.page {
-  width: var(--page-width);
-  min-height: var(--page-height);
-  background: var(--dark);
-  margin: 0 auto 4px;
-  position: relative;
+/* ─── UNIVERSAL PAGE SHELL ─── */
+.P {
+  width: var(--W);
+  height: var(--H);
   overflow: hidden;
+  background: var(--dark1);
+  margin: 0 auto 3px;
+  position: relative;
   display: flex;
   flex-direction: column;
 }
 
-/* ===== COVER PAGE ===== */
-.cover {
-  background: var(--black);
-  width: var(--page-width);
-  height: var(--page-height);
-  min-height: var(--page-height);
-  margin: 0 auto 4px;
-  position: relative;
+/* ─── PAGE HEADER ─── */
+.ph {
+  flex-shrink: 0;
+  height: 14mm;
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16mm 0 20mm;
+  border-bottom: 0.4px solid var(--dark5);
+}
+.ph-book { font-size:6.5pt; letter-spacing:2px; text-transform:uppercase; color:var(--mutW); }
+.ph-chap { font-size:6.5pt; letter-spacing:2px; text-transform:uppercase; color:var(--goldD); }
+
+/* ─── PAGE BODY ─── */
+.pb {
+  flex: 1;
   overflow: hidden;
+  padding: 7mm 16mm 5mm 20mm;
 }
 
-.cover-left-band {
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 12mm;
-  background: linear-gradient(180deg, var(--gold-dark) 0%, var(--gold) 40%, var(--gold-light) 60%, var(--gold) 80%, var(--gold-dark) 100%);
-}
-
-.cover-top-bar {
-  position: absolute;
-  top: 0; left: 12mm; right: 0;
-  height: 2mm;
-  background: var(--gold);
-}
-
-.cover-bottom-bar {
-  position: absolute;
-  bottom: 0; left: 12mm; right: 0;
-  height: 2mm;
-  background: var(--gold);
-}
-
-.cover-content {
-  margin-left: 12mm;
-  padding: 18mm 18mm 18mm 22mm;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: var(--page-height);
-}
-
-.cover-badge {
-  display: inline-block;
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  font-family: 'Inter', sans-serif;
-  font-size: 7.5pt;
-  font-weight: 600;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  padding: 4px 12px;
-  width: fit-content;
-}
-
-.cover-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 12mm 0;
-}
-
-.cover-year {
-  font-family: 'Playfair Display', serif;
-  font-size: 120pt;
-  font-weight: 900;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(201,168,76,0.25);
-  line-height: 0.85;
-  letter-spacing: -4px;
-  position: absolute;
-  right: -8mm;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 0;
-  user-select: none;
-}
-
-.cover-title-block {
-  position: relative;
-  z-index: 1;
-}
-
-.cover-subtitle-top {
-  font-family: 'Inter', sans-serif;
-  font-size: 8pt;
-  font-weight: 600;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 6mm;
-}
-
-.cover-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 46pt;
-  font-weight: 900;
-  color: var(--white);
-  line-height: 1.05;
-  letter-spacing: -1px;
-}
-
-.cover-title span {
-  color: var(--gold);
-}
-
-.cover-divider {
-  width: 40mm;
-  height: 2px;
-  background: linear-gradient(90deg, var(--gold), transparent);
-  margin: 7mm 0;
-}
-
-.cover-desc {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 14pt;
-  font-style: italic;
-  color: var(--white-dim);
-  line-height: 1.5;
-  max-width: 100mm;
-}
-
-.cover-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  border-top: 1px solid rgba(201,168,76,0.3);
-  padding-top: 6mm;
-}
-
-.cover-author-block .label {
-  font-size: 7pt;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--white-muted);
-  font-weight: 500;
-}
-
-.cover-author-block .name {
-  font-family: 'Playfair Display', serif;
-  font-size: 13pt;
-  font-weight: 700;
-  color: var(--gold-light);
-  margin-top: 2px;
-}
-
-.cover-edition {
-  text-align: right;
-  font-size: 7.5pt;
-  color: var(--white-muted);
-  letter-spacing: 1px;
-}
-
-.cover-edition strong {
-  display: block;
-  font-size: 11pt;
-  color: var(--gold);
-  font-family: 'Playfair Display', serif;
-}
-
-/* ===== COPYRIGHT PAGE ===== */
-.copyright-page {
-  width: var(--page-width);
-  min-height: var(--page-height);
-  background: var(--black);
-  margin: 0 auto 4px;
-  padding: var(--margin) var(--inner-margin);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.copyright-top {
-  border-left: 3px solid var(--gold);
-  padding-left: 8mm;
-}
-
-.copyright-top h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 20pt;
-  color: var(--white);
-  margin-bottom: 3mm;
-}
-
-.copyright-top p {
-  font-size: 9pt;
-  color: var(--white-dim);
-  line-height: 1.7;
-}
-
-.copyright-middle {
-  flex: 1;
+/* ─── PAGE FOOTER ─── */
+.pf {
+  flex-shrink: 0;
+  height: 12mm;
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-.copyright-seal {
-  width: 60mm;
-  height: 60mm;
-  border: 2px solid var(--gold-dark);
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-}
-
-.copyright-seal::before {
-  content: '';
-  position: absolute;
-  inset: 4px;
-  border: 1px solid rgba(201,168,76,0.3);
-  border-radius: 50%;
-}
-
-.copyright-seal .symbol {
-  font-size: 28pt;
-  color: var(--gold);
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  line-height: 1;
-}
-
-.copyright-seal .seal-text {
-  font-size: 6.5pt;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--white-muted);
-  margin-top: 2mm;
-}
-
-.copyright-bottom {
-  border-top: 1px solid var(--dark-4);
-  padding-top: 6mm;
-  font-size: 7.5pt;
-  color: var(--white-muted);
-  line-height: 1.8;
-}
-
-.copyright-bottom strong {
-  color: var(--gold);
-}
-
-/* ===== TABLE OF CONTENTS ===== */
-.toc-page {
-  width: var(--page-width);
-  min-height: var(--page-height);
-  background: var(--dark);
-  margin: 0 auto 4px;
-  padding: var(--margin) var(--inner-margin);
-  display: flex;
-  flex-direction: column;
-}
-
-.toc-header {
-  margin-bottom: 10mm;
-  border-bottom: 1px solid var(--dark-4);
-  padding-bottom: 6mm;
-}
-
-.toc-header .section-label {
-  font-size: 7pt;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold);
-  font-weight: 600;
-  margin-bottom: 3mm;
-}
-
-.toc-header h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 30pt;
-  font-weight: 900;
-  color: var(--white);
-}
-
-.toc-list {
-  flex: 1;
-}
-
-.toc-part {
-  margin-bottom: 5mm;
-}
-
-.toc-part-title {
-  font-size: 7pt;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold-dark);
-  font-weight: 600;
-  margin-bottom: 2mm;
-  padding-bottom: 2mm;
-  border-bottom: 1px solid var(--dark-4);
-}
-
-.toc-item {
-  display: flex;
-  align-items: baseline;
-  gap: 0;
-  padding: 2mm 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  cursor: pointer;
-}
-
-.toc-item:last-child { border-bottom: none; }
-
-.toc-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 8pt;
-  color: var(--gold);
-  font-weight: 700;
-  min-width: 12mm;
-}
-
-.toc-title {
-  font-size: 10pt;
-  color: var(--white-dim);
-  flex: 1;
-  font-weight: 400;
-}
-
-.toc-title strong {
-  color: var(--white);
-  font-weight: 600;
-}
-
-.toc-dots {
-  flex: 1;
-  border-bottom: 1px dotted var(--dark-4);
-  margin: 0 3mm;
-  height: 1px;
-  align-self: center;
-  margin-bottom: 3px;
-}
-
-.toc-page-num {
-  font-size: 9pt;
-  color: var(--white-muted);
-  font-family: 'Playfair Display', serif;
-  min-width: 8mm;
-  text-align: right;
-}
-
-/* ===== CHAPTER PAGES ===== */
-.chapter-opener {
-  width: var(--page-width);
-  min-height: var(--page-height);
-  background: var(--black);
-  margin: 0 auto 4px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 0 0 20mm 0;
-}
-
-.chapter-bg-number {
-  position: absolute;
-  top: -20mm;
-  right: -10mm;
-  font-family: 'Playfair Display', serif;
-  font-size: 200pt;
-  font-weight: 900;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(201,168,76,0.08);
-  line-height: 1;
-  z-index: 0;
-  user-select: none;
-}
-
-.chapter-top-stripe {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3mm;
-  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-dark) 60%, transparent 100%);
-}
-
-.chapter-content {
-  position: relative;
-  z-index: 1;
-  padding: var(--margin) var(--inner-margin);
-}
-
-.chapter-part {
-  font-size: 7pt;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold);
-  font-weight: 600;
-  margin-bottom: 4mm;
-}
-
-.chapter-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 11pt;
-  color: var(--white-muted);
-  font-style: italic;
-  margin-bottom: 4mm;
-}
-
-.chapter-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 34pt;
-  font-weight: 900;
-  color: var(--white);
-  line-height: 1.1;
-  margin-bottom: 6mm;
-}
-
-.chapter-title .accent {
-  color: var(--gold);
-}
-
-.chapter-divider {
-  width: 30mm;
-  height: 2px;
-  background: linear-gradient(90deg, var(--gold), transparent);
-  margin-bottom: 5mm;
-}
-
-.chapter-intro-quote {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 13pt;
-  font-style: italic;
-  color: var(--white-dim);
-  line-height: 1.6;
-  max-width: 120mm;
-  padding-left: 6mm;
-  border-left: 2px solid var(--gold-dark);
-}
-
-/* ===== CONTENT PAGE ===== */
-.content-page {
-  width: var(--page-width);
-  min-height: var(--page-height);
-  background: var(--dark);
-  margin: 0 auto 4px;
-  position: relative;
-}
-
-.page-header {
-  display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 8mm var(--inner-margin) 5mm;
-  border-bottom: 1px solid var(--dark-4);
+  padding: 0 16mm 0 20mm;
+  border-top: 0.4px solid var(--dark5);
+  position: relative;
 }
-
-.page-header .book-title {
-  font-size: 7pt;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--white-muted);
-  font-weight: 500;
+.pf::before {
+  content:'';
+  position:absolute;
+  top:0; left:20mm;
+  width:12mm; height:1.5px;
+  background: var(--goldD);
 }
-
-.page-header .chapter-ref {
-  font-size: 7pt;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold-dark);
-  font-weight: 500;
-}
-
-.page-body {
-  padding: 8mm var(--inner-margin) 12mm;
-}
-
-.page-footer {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  padding: 4mm var(--inner-margin);
-  border-top: 1px solid var(--dark-4);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.page-footer .footer-gold-bar {
-  height: 2px;
-  width: 15mm;
-  background: var(--gold-dark);
-  position: absolute;
-  top: 0; left: var(--inner-margin);
-}
-
-.page-number {
-  font-family: 'Playfair Display', serif;
-  font-size: 9pt;
+.pf-num {
+  font-family:'Playfair Display',serif;
+  font-size:11pt;
+  font-weight:700;
   color: var(--gold);
 }
+.pf-site { font-size:6.5pt; color:var(--mutW); letter-spacing:2px; text-transform:uppercase; }
 
-.footer-text {
-  font-size: 7pt;
-  color: var(--white-muted);
-  letter-spacing: 1px;
-  text-transform: uppercase;
+/* ─── TYPOGRAPHY ─── */
+h2.st {
+  font-family:'Playfair Display',serif;
+  font-size:18pt; font-weight:900;
+  color:var(--white); line-height:1.15;
+  margin-bottom:4mm;
+}
+h2.st .g { color:var(--gold); }
+
+h3.ss {
+  font-family:'Playfair Display',serif;
+  font-size:12pt; font-weight:700;
+  color:var(--white);
+  padding-left:4mm;
+  border-left:2.5px solid var(--gold);
+  margin: 4mm 0 2.5mm;
+  line-height:1.3;
 }
 
-/* ===== TYPOGRAPHY ===== */
-h2.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 20pt;
-  font-weight: 900;
-  color: var(--white);
-  line-height: 1.2;
-  margin: 6mm 0 4mm;
-}
-
-h2.section-title .gold { color: var(--gold); }
-
-h3.subsection {
-  font-family: 'Playfair Display', serif;
-  font-size: 14pt;
-  font-weight: 700;
-  color: var(--white);
-  margin: 5mm 0 3mm;
-  padding-left: 4mm;
-  border-left: 3px solid var(--gold);
-}
-
-h4.sub-sub {
-  font-size: 10pt;
-  font-weight: 700;
-  color: var(--gold-light);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin: 4mm 0 2mm;
+h4.sh {
+  font-size:8pt; font-weight:700;
+  color:var(--goldL);
+  text-transform:uppercase; letter-spacing:2px;
+  margin: 3mm 0 2mm;
 }
 
 p {
-  font-family: 'Inter', sans-serif;
-  font-size: 10pt;
-  color: var(--white-dim);
-  line-height: 1.85;
-  margin-bottom: 3.5mm;
-  text-align: justify;
+  font-family:'Inter',sans-serif;
+  font-size:9.5pt; color:var(--dimW);
+  line-height:1.8; margin-bottom:3mm;
+  text-align:justify;
+}
+p strong { color:var(--white); font-weight:600; }
+p em { color:var(--goldL); font-style:italic; }
+
+/* ─── PULL QUOTE ─── */
+.pq {
+  margin:4mm 0;
+  padding:4mm 5mm 4mm 8mm;
+  border-left:3px solid var(--gold);
+  background:rgba(201,168,76,.05);
+}
+.pq p {
+  font-family:'Cormorant Garamond',serif;
+  font-size:12.5pt; font-style:italic;
+  color:var(--white); text-align:left; margin:0 0 1.5mm;
+}
+.pq-src { font-size:7.5pt; color:var(--gold); letter-spacing:2px; text-transform:uppercase; font-weight:600; }
+
+/* ─── STAT ROW ─── */
+.sr { display:flex; gap:3mm; margin:3.5mm 0; }
+.sb {
+  flex:1; background:var(--dark2);
+  border-top:2px solid var(--gold);
+  border:1px solid var(--dark5);
+  border-top:2px solid var(--gold);
+  padding:3mm 3mm;
+  text-align:center;
+}
+.sb-n { font-family:'Playfair Display',serif; font-size:18pt; font-weight:900; color:var(--gold); line-height:1.1; }
+.sb-l { font-size:6.5pt; text-transform:uppercase; letter-spacing:1.5px; color:var(--mutW); margin:1mm 0; font-weight:600; }
+.sb-d { font-size:7.5pt; color:var(--dimW); line-height:1.4; }
+
+/* ─── INFO BOX ─── */
+.ib {
+  background:var(--dark2);
+  border:1px solid var(--dark5);
+  border-left:3px solid var(--goldD);
+  padding:3.5mm 4.5mm;
+  margin:3mm 0;
+}
+.ib-t { font-size:7pt; letter-spacing:2.5px; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:1.5mm; }
+.ib p { font-size:9pt; text-align:left; margin:0; }
+
+/* ─── KEY CONCEPT ─── */
+.kc {
+  background:var(--dark2);
+  border:1px solid rgba(201,168,76,.2);
+  padding:4mm 5mm;
+  margin:3.5mm 0;
+  position:relative;
+}
+.kc::before {
+  content:'CONCEPT CLÉ';
+  position:absolute; top:-1.5mm; left:4mm;
+  font-size:5.5pt; letter-spacing:3px; font-weight:700;
+  color:var(--gold); background:var(--dark2); padding:0 2mm;
+}
+.kc h4 { font-family:'Playfair Display',serif; font-size:11pt; color:var(--white); margin-bottom:1.5mm; }
+.kc p { font-size:9pt; text-align:left; margin:0; }
+
+/* ─── CHECKLIST ─── */
+ul.cl { list-style:none; margin:2mm 0; }
+ul.cl li {
+  display:flex; gap:2.5mm; align-items:flex-start;
+  padding:1.5mm 0;
+  border-bottom:1px solid rgba(255,255,255,.04);
+  font-family:'Inter',sans-serif;
+  font-size:9pt; color:var(--dimW); line-height:1.55;
+}
+ul.cl li::before { content:'◆'; color:var(--gold); font-size:6pt; flex-shrink:0; margin-top:2px; }
+ul.cl li strong { color:var(--white); font-weight:600; }
+
+/* ─── NUMBERED LIST ─── */
+ol.nl { list-style:none; counter-reset:n; margin:2mm 0; }
+ol.nl li {
+  counter-increment:n;
+  display:flex; gap:2.5mm; align-items:flex-start;
+  padding:1.5mm 0;
+  border-bottom:1px solid rgba(255,255,255,.04);
+  font-family:'Inter',sans-serif;
+  font-size:9pt; color:var(--dimW); line-height:1.55;
+}
+ol.nl li::before {
+  content:counter(n,decimal-leading-zero);
+  color:var(--gold); font-family:'Playfair Display',serif;
+  font-size:8.5pt; font-weight:700; flex-shrink:0; min-width:7mm;
+}
+ol.nl li strong { color:var(--white); font-weight:600; }
+
+/* ─── 2-COL GRID ─── */
+.g2 { display:grid; grid-template-columns:1fr 1fr; gap:3mm; margin:3mm 0; }
+.gc {
+  background:var(--dark2); border:1px solid var(--dark5);
+  padding:3.5mm;
+}
+.gc-n { font-size:7pt; color:var(--goldD); font-weight:700; margin-bottom:1mm; letter-spacing:1px; }
+.gc-t { font-size:9.5pt; font-weight:700; color:var(--white); margin-bottom:1.5mm; }
+.gc p { font-size:8.5pt; text-align:left; margin:0; line-height:1.5; }
+
+/* ─── TABLE ─── */
+table.dt { width:100%; border-collapse:collapse; margin:3mm 0; font-size:8.5pt; }
+table.dt th {
+  background:var(--dark3); color:var(--gold);
+  font-weight:700; letter-spacing:1px; text-transform:uppercase; font-size:7pt;
+  padding:2.5mm 3mm; text-align:left;
+  border-bottom:1.5px solid var(--goldD);
+}
+table.dt td { padding:2mm 3mm; color:var(--dimW); border-bottom:1px solid var(--dark5); }
+table.dt td strong { color:var(--white); }
+table.dt td.g { color:var(--gold); font-weight:700; }
+
+/* ─── HIGHLIGHT ─── */
+.hl {
+  background:var(--dark3); border-left:3px solid var(--gold);
+  padding:2.5mm 4mm; margin:2.5mm 0;
+  font-family:'Inter',sans-serif; font-size:9.5pt;
+  color:var(--white); font-weight:500;
 }
 
-p strong {
-  color: var(--white);
-  font-weight: 600;
+/* ─── DIVIDER ─── */
+.div {
+  display:flex; align-items:center; gap:3mm; margin:4mm 0;
+}
+.div .l { flex:1; height:1px; background:var(--dark5); }
+.div .d { color:var(--gold); font-size:7pt; }
+
+/* ══════════════════════════════════════════════════════════
+   SPECIAL PAGES
+══════════════════════════════════════════════════════════ */
+
+/* ─── COVER ─── */
+.cover {
+  width:var(--W); height:var(--H);
+  background:var(--black);
+  margin:0 auto 3px;
+  position:relative; overflow:hidden;
+  display:flex; flex-direction:column;
+}
+.cov-spine {
+  position:absolute; left:0; top:0; bottom:0; width:11mm;
+  background:linear-gradient(180deg,var(--goldD) 0%,var(--gold) 40%,var(--goldL) 58%,var(--gold) 78%,var(--goldD) 100%);
+}
+.cov-top { position:absolute; top:0; left:11mm; right:0; height:2mm; background:var(--gold); }
+.cov-bot { position:absolute; bottom:0; left:11mm; right:0; height:2mm; background:var(--gold); }
+.cov-body {
+  margin-left:11mm;
+  padding:16mm 16mm 16mm 20mm;
+  flex:1; display:flex; flex-direction:column;
+  justify-content:space-between;
+  height:var(--H);
+}
+.cov-badge {
+  display:inline-block;
+  border:1px solid var(--gold); color:var(--gold);
+  font-size:7pt; font-weight:600; letter-spacing:3px;
+  text-transform:uppercase; padding:3px 10px;
+}
+.cov-bg-yr {
+  position:absolute; right:-5mm; top:50%; transform:translateY(-55%);
+  font-family:'Playfair Display',serif; font-size:130pt; font-weight:900;
+  color:transparent; -webkit-text-stroke:1px rgba(201,168,76,.12);
+  line-height:.9; user-select:none; z-index:0;
+}
+.cov-main { position:relative; z-index:1; }
+.cov-tag { font-size:7.5pt; letter-spacing:5px; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:5mm; }
+.cov-title {
+  font-family:'Playfair Display',serif;
+  font-size:48pt; font-weight:900;
+  color:var(--white); line-height:1.02; letter-spacing:-1px;
+  margin-bottom:5mm;
+}
+.cov-title span { color:var(--gold); }
+.cov-rule { width:36mm; height:2px; background:linear-gradient(90deg,var(--gold),transparent); margin-bottom:5mm; }
+.cov-sub {
+  font-family:'Cormorant Garamond',serif;
+  font-size:13.5pt; font-style:italic; color:var(--dimW);
+  line-height:1.5; max-width:100mm;
+}
+.cov-foot {
+  display:flex; justify-content:space-between; align-items:flex-end;
+  border-top:1px solid rgba(201,168,76,.25); padding-top:5mm;
+}
+.cov-author .lbl { font-size:6.5pt; letter-spacing:3px; text-transform:uppercase; color:var(--mutW); }
+.cov-author .nm { font-family:'Playfair Display',serif; font-size:12pt; font-weight:700; color:var(--goldL); margin-top:1.5px; }
+.cov-info { text-align:right; font-size:7pt; color:var(--mutW); }
+.cov-info strong { display:block; font-family:'Playfair Display',serif; font-size:10pt; color:var(--gold); }
+
+/* ─── COPYRIGHT ─── */
+.cpg {
+  width:var(--W); height:var(--H);
+  background:var(--black);
+  margin:0 auto 3px;
+  padding:22mm 16mm 22mm 22mm;
+  display:flex; flex-direction:column; justify-content:space-between;
+  overflow:hidden;
+}
+.cpg-top { border-left:3px solid var(--gold); padding-left:7mm; }
+.cpg-top h2 { font-family:'Playfair Display',serif; font-size:18pt; color:var(--white); margin-bottom:2mm; }
+.cpg-top p { font-size:9pt; color:var(--dimW); line-height:1.7; }
+.cpg-seal {
+  width:52mm; height:52mm; border:2px solid var(--goldD);
+  border-radius:50%; margin:0 auto;
+  display:flex; flex-direction:column; align-items:center;
+  justify-content:center; text-align:center; position:relative;
+}
+.cpg-seal::before {
+  content:''; position:absolute; inset:4px;
+  border:1px solid rgba(201,168,76,.25); border-radius:50%;
+}
+.cpg-seal .sym { font-family:'Playfair Display',serif; font-size:28pt; color:var(--gold); font-weight:900; line-height:1; }
+.cpg-seal .stxt { font-size:6pt; letter-spacing:2px; text-transform:uppercase; color:var(--mutW); margin-top:2mm; }
+.cpg-bot { border-top:1px solid var(--dark5); padding-top:5mm; font-size:8pt; color:var(--mutW); line-height:1.85; }
+.cpg-bot strong { color:var(--gold); }
+
+/* ─── TABLE OF CONTENTS ─── */
+.toc {
+  width:var(--W); height:var(--H);
+  background:var(--dark1);
+  margin:0 auto 3px;
+  padding:18mm 16mm 18mm 22mm;
+  display:flex; flex-direction:column;
+  overflow:hidden;
+}
+.toc-hd { margin-bottom:7mm; border-bottom:1px solid var(--dark5); padding-bottom:5mm; }
+.toc-hd .lbl { font-size:6.5pt; letter-spacing:4px; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:2.5mm; }
+.toc-hd h2 { font-family:'Playfair Display',serif; font-size:26pt; font-weight:900; color:var(--white); }
+.toc-part-title { font-size:6.5pt; letter-spacing:3px; text-transform:uppercase; color:var(--goldD); font-weight:600; margin:4mm 0 2mm; padding-bottom:1.5mm; border-bottom:1px solid var(--dark5); }
+.ti {
+  display:flex; align-items:baseline;
+  padding:2mm 0;
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.ti-num { font-family:'Playfair Display',serif; font-size:8pt; color:var(--gold); font-weight:700; min-width:10mm; flex-shrink:0; }
+.ti-ttl { font-size:9.5pt; color:var(--dimW); flex:1; }
+.ti-ttl strong { color:var(--white); font-weight:600; }
+.ti-dots { flex:1; border-bottom:1px dotted var(--dark5); margin:0 3mm 3px; height:1px; align-self:center; }
+.ti-pg { font-family:'Playfair Display',serif; font-size:9pt; color:var(--mutW); min-width:7mm; text-align:right; }
+
+/* ─── CHAPTER OPENER ─── */
+.cop {
+  width:var(--W); height:var(--H);
+  background:var(--black);
+  margin:0 auto 3px;
+  position:relative; overflow:hidden;
+  display:flex; flex-direction:column; justify-content:flex-end;
+}
+.cop-stripe { position:absolute; top:0; left:0; right:0; height:2.5mm; background:linear-gradient(90deg,var(--gold) 0%,var(--goldD) 60%,transparent 100%); }
+.cop-bgn {
+  position:absolute; top:-15mm; right:-8mm;
+  font-family:'Playfair Display',serif; font-size:190pt; font-weight:900;
+  color:transparent; -webkit-text-stroke:1px rgba(201,168,76,.07);
+  line-height:1; user-select:none; z-index:0;
+}
+.cop-body { position:relative; z-index:1; padding:0 16mm 18mm 22mm; }
+.cop-part { font-size:6.5pt; letter-spacing:4px; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:3mm; }
+.cop-num { font-family:'Playfair Display',serif; font-size:10.5pt; font-style:italic; color:var(--mutW); margin-bottom:3mm; }
+.cop-title { font-family:'Playfair Display',serif; font-size:32pt; font-weight:900; color:var(--white); line-height:1.1; margin-bottom:5mm; }
+.cop-title .a { color:var(--gold); }
+.cop-rule { width:28mm; height:2px; background:linear-gradient(90deg,var(--gold),transparent); margin-bottom:4.5mm; }
+.cop-quote {
+  font-family:'Cormorant Garamond',serif; font-size:12.5pt; font-style:italic;
+  color:var(--dimW); line-height:1.55; max-width:115mm;
+  border-left:2px solid var(--goldD); padding-left:5mm;
 }
 
-p em {
-  color: var(--gold-light);
-  font-style: italic;
+/* ─── PART SEPARATOR ─── */
+.psep {
+  width:var(--W); height:var(--H);
+  background:var(--black);
+  margin:0 auto 3px;
+  display:flex; flex-direction:column; align-items:center;
+  justify-content:center; position:relative; overflow:hidden;
 }
-
-/* ===== PULL QUOTE ===== */
-.pull-quote {
-  margin: 6mm 0;
-  padding: 6mm 8mm;
-  border-left: 4px solid var(--gold);
-  background: rgba(201,168,76,0.06);
-  position: relative;
+.psep-bg {
+  position:absolute;
+  font-family:'Playfair Display',serif; font-size:200pt; font-weight:900;
+  color:transparent; -webkit-text-stroke:1px rgba(201,168,76,.05);
+  user-select:none; line-height:1;
 }
+.psep-c { position:relative; z-index:1; text-align:center; }
+.psep-lbl { font-size:6.5pt; letter-spacing:6px; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:5mm; }
+.psep-num { font-family:'Playfair Display',serif; font-size:64pt; font-weight:900; color:var(--white); line-height:1; margin-bottom:5mm; }
+.psep-ttl { font-family:'Playfair Display',serif; font-size:20pt; font-style:italic; color:var(--dimW); margin-bottom:9mm; }
+.psep-rule { width:36mm; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin:0 auto; }
 
-.pull-quote::before {
-  content: '\201C';
-  font-family: 'Playfair Display', serif;
-  font-size: 60pt;
-  color: var(--gold);
-  opacity: 0.3;
-  position: absolute;
-  top: -3mm;
-  left: 2mm;
-  line-height: 1;
+/* ─── BACK COVER ─── */
+.bcov {
+  width:var(--W); height:var(--H);
+  background:var(--black);
+  margin:0 auto;
+  position:relative; overflow:hidden;
+  display:flex; flex-direction:column; justify-content:space-between;
+  padding:16mm 16mm 16mm 22mm;
 }
-
-.pull-quote p {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 14pt;
-  font-style: italic;
-  color: var(--white);
-  text-align: left;
-  line-height: 1.55;
-  padding-left: 8mm;
+.bcov-spine { position:absolute; left:0; top:0; bottom:0; width:11mm; background:linear-gradient(180deg,var(--goldD) 0%,var(--gold) 40%,var(--goldL) 58%,var(--gold) 78%,var(--goldD) 100%); }
+.bcov-title { font-family:'Playfair Display',serif; font-size:20pt; font-weight:900; color:var(--white); margin-bottom:2.5mm; }
+.bcov-title .g { color:var(--gold); }
+.bcov-sub { font-family:'Cormorant Garamond',serif; font-size:11pt; font-style:italic; color:var(--dimW); line-height:1.6; max-width:128mm; margin-bottom:5mm; }
+ul.bcf { list-style:none; }
+ul.bcf li { display:flex; gap:3mm; font-size:9pt; color:var(--dimW); padding:1.5mm 0; line-height:1.45; }
+ul.bcf li::before { content:'—'; color:var(--gold); font-weight:700; flex-shrink:0; }
+.bcov-price {
+  background:var(--gold); color:var(--black);
+  display:inline-block; padding:3.5mm 6mm; margin-bottom:5mm;
 }
-
-.pull-quote .quote-author {
-  font-size: 8pt;
-  color: var(--gold);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 600;
-  padding-left: 8mm;
-  margin-top: 2mm;
-  font-style: normal;
+.bcov-price .pl { font-size:6.5pt; font-weight:700; letter-spacing:2px; text-transform:uppercase; }
+.bcov-price .pv { font-family:'Playfair Display',serif; font-size:22pt; font-weight:900; line-height:1.1; }
+.bcov-foot {
+  border-top:1px solid rgba(201,168,76,.25); padding-top:4.5mm;
+  display:flex; justify-content:space-between; align-items:flex-end;
 }
+.bcov-foot .ed { font-size:7.5pt; color:var(--mutW); }
+.bcov-foot .ed strong { display:block; font-size:9.5pt; color:var(--dimW); font-family:'Courier New',monospace; }
+.bcov-foot .yr { font-family:'Playfair Display',serif; font-size:13pt; color:var(--gold); }
 
-/* ===== STAT BOX ===== */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3mm;
-  margin: 5mm 0;
-}
-
-.stat-box {
-  background: var(--dark-2);
-  border: 1px solid var(--dark-4);
-  border-top: 2px solid var(--gold);
-  padding: 4mm;
-  text-align: center;
-}
-
-.stat-number {
-  font-family: 'Playfair Display', serif;
-  font-size: 22pt;
-  font-weight: 900;
-  color: var(--gold);
-  line-height: 1.1;
-}
-
-.stat-label {
-  font-size: 7.5pt;
-  color: var(--white-muted);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-top: 1.5mm;
-  font-weight: 500;
-}
-
-.stat-desc {
-  font-size: 8.5pt;
-  color: var(--white-dim);
-  margin-top: 1mm;
-  line-height: 1.4;
-}
-
-/* ===== INFO BOX ===== */
-.info-box {
-  background: var(--dark-2);
-  border: 1px solid var(--dark-4);
-  border-left: 4px solid var(--gold-dark);
-  padding: 4mm 5mm;
-  margin: 4mm 0;
-}
-
-.info-box-title {
-  font-size: 8pt;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--gold);
-  font-weight: 700;
-  margin-bottom: 2mm;
-}
-
-.info-box p {
-  font-size: 9.5pt;
-  text-align: left;
-  margin-bottom: 0;
-}
-
-/* ===== CHECKLIST ===== */
-.checklist {
-  margin: 3mm 0;
-  list-style: none;
-}
-
-.checklist li {
-  display: flex;
-  gap: 3mm;
-  align-items: flex-start;
-  padding: 1.5mm 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  font-size: 9.5pt;
-  color: var(--white-dim);
-  line-height: 1.5;
-}
-
-.checklist li::before {
-  content: '◆';
-  color: var(--gold);
-  font-size: 7pt;
-  flex-shrink: 0;
-  margin-top: 1.5px;
-}
-
-/* ===== NUMBERED LIST ===== */
-.numbered-list {
-  counter-reset: num;
-  list-style: none;
-  margin: 3mm 0;
-}
-
-.numbered-list li {
-  counter-increment: num;
-  display: flex;
-  gap: 3mm;
-  padding: 2mm 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  font-size: 9.5pt;
-  color: var(--white-dim);
-  line-height: 1.6;
-}
-
-.numbered-list li::before {
-  content: counter(num, decimal-leading-zero);
-  color: var(--gold);
-  font-family: 'Playfair Display', serif;
-  font-size: 9pt;
-  font-weight: 700;
-  flex-shrink: 0;
-  min-width: 8mm;
-}
-
-/* ===== KEY CONCEPT ===== */
-.key-concept {
-  background: linear-gradient(135deg, var(--dark-2), var(--dark-3));
-  border: 1px solid rgba(201,168,76,0.25);
-  padding: 5mm 6mm;
-  margin: 5mm 0;
-  position: relative;
-}
-
-.key-concept::before {
-  content: 'CONCEPT CLÉ';
-  position: absolute;
-  top: -3px;
-  left: 4mm;
-  font-size: 6.5pt;
-  letter-spacing: 3px;
-  font-weight: 700;
-  color: var(--gold);
-  background: var(--dark-2);
-  padding: 0 2mm;
-}
-
-.key-concept h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 13pt;
-  color: var(--white);
-  margin-bottom: 2mm;
-}
-
-.key-concept p {
-  font-size: 9.5pt;
-  text-align: left;
-  margin-bottom: 0;
-}
-
-/* ===== STRATEGY CARD ===== */
-.strategy-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3mm;
-  margin: 4mm 0;
-}
-
-.strategy-card {
-  background: var(--dark-2);
-  border: 1px solid var(--dark-4);
-  padding: 4mm;
-}
-
-.strategy-card-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 8pt;
-  color: var(--gold-dark);
-  font-weight: 700;
-  margin-bottom: 1.5mm;
-}
-
-.strategy-card-title {
-  font-size: 10pt;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 1.5mm;
-}
-
-.strategy-card p {
-  font-size: 8.5pt;
-  margin-bottom: 0;
-  text-align: left;
-}
-
-/* ===== DIVIDER ===== */
-.section-divider {
-  display: flex;
-  align-items: center;
-  gap: 3mm;
-  margin: 5mm 0;
-}
-
-.section-divider .line {
-  flex: 1;
-  height: 1px;
-  background: var(--dark-4);
-}
-
-.section-divider .diamond {
-  color: var(--gold);
-  font-size: 8pt;
-}
-
-/* ===== HIGHLIGHT ROW ===== */
-.highlight-row {
-  background: var(--dark-3);
-  border-left: 3px solid var(--gold);
-  padding: 3mm 4mm;
-  margin: 3mm 0;
-  font-size: 9.5pt;
-  color: var(--white);
-  font-weight: 500;
-}
-
-/* ===== TABLE ===== */
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 4mm 0;
-  font-size: 9pt;
-}
-
-.data-table th {
-  background: var(--dark-3);
-  color: var(--gold);
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-size: 7.5pt;
-  padding: 3mm 4mm;
-  text-align: left;
-  border-bottom: 2px solid var(--gold-dark);
-}
-
-.data-table td {
-  padding: 2.5mm 4mm;
-  color: var(--white-dim);
-  border-bottom: 1px solid var(--dark-4);
-  line-height: 1.5;
-}
-
-.data-table tr:hover td { background: rgba(255,255,255,0.02); }
-.data-table td strong { color: var(--white); }
-.data-table td .gold { color: var(--gold); font-weight: 700; }
-
-/* ===== PART SEPARATOR ===== */
-.part-separator {
-  width: var(--page-width);
-  height: var(--page-height);
-  min-height: var(--page-height);
-  background: var(--black);
-  margin: 0 auto 4px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.part-separator .part-bg {
-  position: absolute;
-  font-family: 'Playfair Display', serif;
-  font-size: 180pt;
-  font-weight: 900;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(201,168,76,0.06);
-  user-select: none;
-  line-height: 1;
-}
-
-.part-separator .part-center {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
-
-.part-separator .part-label {
-  font-size: 7pt;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  color: var(--gold);
-  font-weight: 600;
-  margin-bottom: 6mm;
-}
-
-.part-separator .part-number {
-  font-family: 'Playfair Display', serif;
-  font-size: 60pt;
-  font-weight: 900;
-  color: var(--white);
-  line-height: 1;
-  margin-bottom: 6mm;
-}
-
-.part-separator .part-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 24pt;
-  font-style: italic;
-  color: var(--white-dim);
-  margin-bottom: 10mm;
-}
-
-.part-separator .part-line {
-  width: 40mm;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  margin: 0 auto;
-}
-
-/* ===== CONCLUSION / BACK MATTER ===== */
-.back-page {
-  width: var(--page-width);
-  min-height: var(--page-height);
-  background: var(--dark);
-  margin: 0 auto 4px;
-  padding: var(--margin) var(--inner-margin);
-}
-
-/* ===== BACK COVER ===== */
-.back-cover {
-  width: var(--page-width);
-  height: var(--page-height);
-  background: var(--black);
-  margin: 0 auto;
-  padding: 18mm 18mm 18mm 22mm;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  overflow: hidden;
-}
-
-.back-cover-left-band {
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 12mm;
-  background: linear-gradient(180deg, var(--gold-dark) 0%, var(--gold) 40%, var(--gold-light) 60%, var(--gold) 80%, var(--gold-dark) 100%);
-}
-
-.back-cover-top {
-  padding-left: 10mm;
-}
-
-.back-cover-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 22pt;
-  font-weight: 900;
-  color: var(--white);
-  margin-bottom: 3mm;
-}
-
-.back-cover-title .gold { color: var(--gold); }
-
-.back-cover-desc {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 12pt;
-  font-style: italic;
-  color: var(--white-dim);
-  line-height: 1.65;
-  max-width: 130mm;
-  margin-bottom: 6mm;
-}
-
-.back-cover-features {
-  list-style: none;
-  padding-left: 10mm;
-}
-
-.back-cover-features li {
-  font-size: 9.5pt;
-  color: var(--white-dim);
-  padding: 1.5mm 0;
-  display: flex;
-  gap: 3mm;
-  align-items: flex-start;
-}
-
-.back-cover-features li::before {
-  content: '—';
-  color: var(--gold);
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.back-cover-price-block {
-  background: var(--gold);
-  color: var(--black);
-  padding: 4mm 6mm;
-  display: inline-block;
-  margin-bottom: 5mm;
-}
-
-.back-cover-price-block .price-label {
-  font-size: 7pt;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.back-cover-price-block .price {
-  font-family: 'Playfair Display', serif;
-  font-size: 24pt;
-  font-weight: 900;
-  line-height: 1.1;
-}
-
-.back-cover-bottom {
-  border-top: 1px solid rgba(201,168,76,0.3);
-  padding-top: 5mm;
-  padding-left: 10mm;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.back-cover-isbn {
-  font-size: 8pt;
-  color: var(--white-muted);
-}
-
-.back-cover-isbn strong {
-  display: block;
-  font-size: 10pt;
-  color: var(--white-dim);
-  font-family: 'Courier New', monospace;
-}
-
-/* ===== PRINT ===== */
 @media print {
-  body { background: none; }
-  .page, .cover, .copyright-page, .toc-page, .chapter-opener, .content-page, .part-separator, .back-page, .back-cover {
-    margin: 0;
-    width: 210mm;
-    page-break-after: always;
-    box-shadow: none;
-  }
+  body { background:none; }
+  .P,.cover,.cpg,.toc,.cop,.psep,.bcov { margin:0; page-break-after:always; box-shadow:none; }
 }
-
 @media screen {
-  body { padding: 8mm 0; }
+  body { padding:6mm 0; }
 }
 </style>
 </head>
 <body>
 
-<!-- ===================== COVER ===================== -->
+<!-- ═══════════ 1. COUVERTURE ═══════════ -->
 <div class="cover">
-  <div class="cover-left-band"></div>
-  <div class="cover-top-bar"></div>
-  <div class="cover-bottom-bar"></div>
-  <div class="cover-content">
-    <div class="cover-badge">Édition Premium · 2026</div>
-
-    <div class="cover-main">
-      <div class="cover-year">2026</div>
-      <div class="cover-title-block">
-        <div class="cover-subtitle-top">Guide Stratégique</div>
-        <div class="cover-title">
-          Digital<br>
-          <span>Marketing</span><br>
-          Maîtrisé
-        </div>
-        <div class="cover-divider"></div>
-        <div class="cover-desc">
-          Les stratégies, outils et systèmes des experts qui génèrent des revenus réels en ligne.
-        </div>
-      </div>
+  <div class="cov-spine"></div>
+  <div class="cov-top"></div>
+  <div class="cov-bot"></div>
+  <div class="cov-body">
+    <div class="cov-badge">Édition Premium · 2026</div>
+    <div class="cov-main">
+      <div class="cov-bg-yr">2026</div>
+      <div class="cov-tag">Guide Stratégique</div>
+      <div class="cov-title">Digital<br><span>Marketing</span><br>Maîtrisé</div>
+      <div class="cov-rule"></div>
+      <div class="cov-sub">Les stratégies, outils et systèmes des experts qui génèrent des revenus réels en ligne.</div>
     </div>
-
-    <div class="cover-bottom">
-      <div class="cover-author-block">
-        <div class="label">Par</div>
-        <div class="name">VIBCODING Studio</div>
+    <div class="cov-foot">
+      <div class="cov-author">
+        <div class="lbl">Par</div>
+        <div class="nm">VIBCODING Studio</div>
       </div>
-      <div class="cover-edition">
-        <strong>12</strong>
-        Chapitres · 250+ pages<br>
-        Stratégies & Cas Pratiques
+      <div class="cov-info">
+        <strong>12</strong>Chapitres · 270 pages<br>Stratégies & Cas Pratiques
       </div>
     </div>
   </div>
 </div>
 
-<!-- ===================== COPYRIGHT ===================== -->
-<div class="copyright-page">
-  <div class="copyright-top">
+<!-- ═══════════ 2. COPYRIGHT ═══════════ -->
+<div class="cpg">
+  <div class="cpg-top">
     <h2>Digital Marketing Maîtrisé</h2>
     <p>Guide Stratégique Premium · Édition 2026</p>
   </div>
-
-  <div class="copyright-middle">
-    <div class="copyright-seal">
-      <div class="symbol">©</div>
-      <div class="seal-text">2026 · Tous droits<br>réservés</div>
-    </div>
+  <div class="cpg-seal">
+    <div class="sym">©</div>
+    <div class="stxt">2026 · Tous droits<br>réservés</div>
   </div>
-
-  <div class="copyright-bottom">
+  <div class="cpg-bot">
     <strong>Copyright © 2026 — VIBCODING Studio</strong><br><br>
-    Tous droits réservés. Aucune partie de cette publication ne peut être reproduite, distribuée ou transmise sous quelque forme que ce soit, y compris la photocopie, l'enregistrement ou d'autres méthodes électroniques ou mécaniques, sans l'autorisation écrite préalable de l'éditeur.<br><br>
-    Cet ouvrage est destiné à un usage personnel et éducatif. La revente, la redistribution ou le partage non autorisé constituent une violation des droits d'auteur et sont passibles de poursuites judiciaires.<br><br>
+    Tous droits réservés. Aucune partie de cette publication ne peut être reproduite, distribuée ou transmise sous quelque forme que ce soit sans l'autorisation écrite préalable de l'éditeur.<br><br>
+    Cet ouvrage est destiné à un usage personnel et éducatif. La revente ou la redistribution non autorisée constitue une violation des droits d'auteur.<br><br>
     <strong>Première édition :</strong> Juin 2026<br>
-    <strong>Imprimé et distribué par :</strong> VIBCODING Studio<br>
-    <strong>Contact :</strong> hello@vibcoding.com<br><br>
-    <em>Ce livre est protégé par les lois internationales sur le droit d'auteur.</em>
+    <strong>Éditeur :</strong> VIBCODING Studio<br>
+    <strong>Contact :</strong> hello@vibcoding.com<br>
+    <strong>Site :</strong> vibcoding.com
   </div>
 </div>
 
-<!-- ===================== TABLE OF CONTENTS ===================== -->
-<div class="toc-page">
-  <div class="toc-header">
-    <div class="section-label">Sommaire</div>
+<!-- ═══════════ 3. TABLE DES MATIÈRES ═══════════ -->
+<div class="toc">
+  <div class="toc-hd">
+    <div class="lbl">Sommaire</div>
     <h2>Table des Matières</h2>
   </div>
 
-  <div class="toc-list">
+  <div class="toc-part-title">Partie I — Fondations Stratégiques</div>
+  <div class="ti"><span class="ti-num">01</span><span class="ti-ttl"><strong>L'Écosystème Digital 2026</strong> — Cartographie du marché</span><span class="ti-dots"></span><span class="ti-pg">12</span></div>
+  <div class="ti"><span class="ti-num">02</span><span class="ti-ttl"><strong>Psychologie de l'Acheteur</strong> — Comprendre pour convertir</span><span class="ti-dots"></span><span class="ti-pg">30</span></div>
+  <div class="ti"><span class="ti-num">03</span><span class="ti-ttl"><strong>Positionnement & Offre</strong> — Se différencier dans le bruit</span><span class="ti-dots"></span><span class="ti-pg">50</span></div>
 
-    <div class="toc-part">
-      <div class="toc-part-title">Partie I — Fondations Stratégiques</div>
+  <div class="toc-part-title">Partie II — Acquisition & Trafic</div>
+  <div class="ti"><span class="ti-num">04</span><span class="ti-ttl"><strong>SEO & Contenu Organique</strong> — Dominer les moteurs de recherche</span><span class="ti-dots"></span><span class="ti-pg">70</span></div>
+  <div class="ti"><span class="ti-num">05</span><span class="ti-ttl"><strong>Publicité Payante</strong> — Google, Meta & TikTok Ads</span><span class="ti-dots"></span><span class="ti-pg">90</span></div>
+  <div class="ti"><span class="ti-num">06</span><span class="ti-ttl"><strong>Réseaux Sociaux & Influence</strong> — Construire une audience</span><span class="ti-dots"></span><span class="ti-pg">112</span></div>
 
-      <div class="toc-item">
-        <span class="toc-num">01</span>
-        <span class="toc-title"><strong>L'Écosystème Digital 2026</strong> — Cartographie du marché</span>
-        <span class="toc-dots"></span>
-        <span class="toc-page-num">12</span>
-      </div>
-      <div class="toc-item">
-        <span class="toc-num">02</span>
-        <span class="toc-title"><strong>Psychologie de l'Acheteur</strong> — Comprendre pour convertir</span>
-        <span class="toc-dots"></span>
-        <span class="toc-page-num">34</span>
-      </div>
-      <div class="toc-item">
-        <span class="toc-num">03</span>
-        <span class="toc-title"><strong>Positionnement & Offre</strong> — Se différencier dans le bruit</span>
-        <span class="toc-dots"></span>
-        <span class="toc-page-num">58</span>
-      </div>
-    </div>
+  <div class="toc-part-title">Partie III — Conversion & Systèmes</div>
+  <div class="ti"><span class="ti-num">07</span><span class="ti-ttl"><strong>Email Marketing & Automation</strong> — Vendre pendant que vous dormez</span><span class="ti-dots"></span><span class="ti-pg">134</span></div>
+  <div class="ti"><span class="ti-num">08</span><span class="ti-ttl"><strong>Tunnels de Vente</strong> — Architecture qui convertit</span><span class="ti-dots"></span><span class="ti-pg">154</span></div>
+  <div class="ti"><span class="ti-num">09</span><span class="ti-ttl"><strong>Copywriting & Persuasion</strong> — Écrire pour vendre</span><span class="ti-dots"></span><span class="ti-pg">174</span></div>
 
-    <div class="toc-part">
-      <div class="toc-part-title">Partie II — Acquisition & Trafic</div>
+  <div class="toc-part-title">Partie IV — Scale & Revenus</div>
+  <div class="ti"><span class="ti-num">10</span><span class="ti-ttl"><strong>Intelligence Artificielle</strong> — Automatiser & amplifier</span><span class="ti-dots"></span><span class="ti-pg">196</span></div>
+  <div class="ti"><span class="ti-num">11</span><span class="ti-ttl"><strong>Analyse & Données</strong> — Décider avec les chiffres</span><span class="ti-dots"></span><span class="ti-pg">216</span></div>
+  <div class="ti"><span class="ti-num">12</span><span class="ti-ttl"><strong>Scaler son Business</strong> — De 0 à 6 chiffres</span><span class="ti-dots"></span><span class="ti-pg">236</span></div>
 
-      <div class="toc-item">
-        <span class="toc-num">04</span>
-        <span class="toc-title"><strong>SEO & Contenu Organique</strong> — Dominer les moteurs de recherche</span>
-        <span class="toc-dots"></span>
-        <span class="toc-page-num">80</span>
-      </div>
-      <div class="toc-item">
-        <span class="toc-num">05</span>
-        <span class="toc-title"><strong>Publicité Payante</strong> — Google, Meta & TikTok Ads</span>
-        <span class="toc-dots"></span>
-        <span class="toc-page-num">102</span>
-      </div>
-      <div class="toc-item">
-        <span class="toc-num">06</span>
-        <span class="toc-title"><strong>Réseaux Sociaux & Influence</strong> — Construire une audience</span>
-        <span class="toc-dots"></span>
-        <span class="toc-page-num">126</span>
-      </div>
-    </div>
+  <div class="toc-part-title">Annexes</div>
+  <div class="ti"><span class="ti-num">—</span><span class="ti-ttl">Ressources, Outils & Références</span><span class="ti-dots"></span><span class="ti-pg">258</span></div>
+</div>
 
-    <div class="toc-part">
-      <div class="toc-part-title">Partie III — Conversion & Systèmes</div>
-
-      <div class="toc-item">
-        <span class="toc-num">07</span>
-        <span class="toc-title"><strong>Email Marketing & Automation</strong> — Vendre pendant que vous dormez</span>
-        <span class="toc-dots"></span>
-        <span class="toc-page-num">150</span>
-      </div>
-      <div class="toc-item">
-        <span class="toc-num">08</span>
-        <span class="toc-title"><strong>Tunnels de Vente</strong> — Architecture qui convertit</span>
-        <span class="toc-dots"></span>
-        <span class="toc-page-num">170</span>
-      </div>
-      <div class="toc-item">
-        <span class="toc-num">09</span>
-        <span class="toc-title"><strong>Copywriting & Persuasion</strong> — Écrire pour vendre</span>
-        <span class="toc-dots"></span>
-        <span class="toc-page-num">192</span>
-      </div>
-    </div>
-
-    <div class="toc-part">
-      <div class="toc-part-title">Partie IV — Scale & Revenus</div>
-
-      <div class="toc-item">
-        <span class="toc-num">10</span>
-        <span class="toc-title"><strong>Intelligence Artificielle</strong> — Automatiser & amplifier</span>
-        <span class="toc-dots"></span>
-        <span class="toc-page-num">214</span>
-      </div>
-      <div class="toc-item">
-        <span class="toc-num">11</span>
-        <span class="toc-title"><strong>Analyse & Données</strong> — Décider avec les chiffres</span>
-        <span class="toc-dots"></span>
-        <span class="toc-page-num">232</span>
-      </div>
-      <div class="toc-item">
-        <span class="toc-num">12</span>
-        <span class="toc-title"><strong>Scaler son Business</strong> — De 0 à 6 chiffres</span>
-        <span class="toc-dots"></span>
-        <span class="toc-page-num">252</span>
-      </div>
-    </div>
-
-    <div class="toc-part">
-      <div class="toc-part-title">Annexes</div>
-      <div class="toc-item">
-        <span class="toc-num">—</span>
-        <span class="toc-title">Ressources, Outils & Références</span>
-        <span class="toc-dots"></span>
-        <span class="toc-page-num">270</span>
-      </div>
-    </div>
-
+<!-- ═══════════ PARTIE I ═══════════ -->
+<div class="psep">
+  <div class="psep-bg">I</div>
+  <div class="psep-c">
+    <div class="psep-lbl">Première Partie</div>
+    <div class="psep-num">I</div>
+    <div class="psep-ttl">Fondations Stratégiques</div>
+    <div class="psep-rule"></div>
   </div>
 </div>
 
-<!-- ===================== PART I SEPARATOR ===================== -->
-<div class="part-separator">
-  <div class="part-bg">I</div>
-  <div class="part-center">
-    <div class="part-label">Première Partie</div>
-    <div class="part-number">I</div>
-    <div class="part-title">Fondations Stratégiques</div>
-    <div class="part-line"></div>
+<!-- ═══════════ CH.01 OUVERTURE ═══════════ -->
+<div class="cop">
+  <div class="cop-stripe"></div>
+  <div class="cop-bgn">01</div>
+  <div class="cop-body">
+    <div class="cop-part">Partie I · Fondations Stratégiques</div>
+    <div class="cop-num">Chapitre Premier</div>
+    <div class="cop-title">L'Écosystème<br>Digital <span class="a">2026</span></div>
+    <div class="cop-rule"></div>
+    <div class="cop-quote">« Le marketing digital n'est plus une option — c'est le terrain de jeu où se décide chaque vente, chaque relation, chaque empire. »</div>
   </div>
 </div>
 
-<!-- ===================== CHAPITRE 1 OPENER ===================== -->
-<div class="chapter-opener">
-  <div class="chapter-top-stripe"></div>
-  <div class="chapter-bg-number">01</div>
-  <div class="chapter-content">
-    <div class="chapter-part">Partie I · Fondations Stratégiques</div>
-    <div class="chapter-num">Chapitre Premier</div>
-    <div class="chapter-title">L'Écosystème<br>Digital <span class="accent">2026</span></div>
-    <div class="chapter-divider"></div>
-    <div class="chapter-intro-quote">
-      « Le marketing digital n'est plus une option — c'est le terrain de jeu où se décide chaque vente, chaque relation, chaque empire. »
+<!-- ═══════════ CH.01 — PAGE 12 ═══════════ -->
+<div class="P">
+  <div class="ph"><span class="ph-book">Digital Marketing Maîtrisé · 2026</span><span class="ph-chap">Ch. 01 · L'Écosystème Digital</span></div>
+  <div class="pb">
+    <h2 class="st">Le Nouveau <span class="g">Paysage</span> Digital</h2>
+    <p>En 2026, le digital est le commerce. <strong>5,4 milliards d'internautes</strong> interagissent quotidiennement avec des marques, des contenus, des offres. Chaque minute, 500 heures de vidéo sont uploadées, 6 millions d'emails partent et 1 million de dollars sont dépensés en publicité en ligne.</p>
+    <p>Ce n'est plus un canal parmi d'autres — c'est le <em>canal principal</em> de toute économie moderne. Comprendre sa structure, ses règles et ses opportunités est la compétence la plus précieuse qu'un entrepreneur puisse développer.</p>
+    <div class="sr">
+      <div class="sb"><div class="sb-n">5,4 Md</div><div class="sb-l">Internautes</div><div class="sb-d">67 % de la population mondiale connectée</div></div>
+      <div class="sb"><div class="sb-n">$8,5 Tn</div><div class="sb-l">E-commerce</div><div class="sb-d">Volume global de vente en ligne prévu</div></div>
+      <div class="sb"><div class="sb-n">$780 Md</div><div class="sb-l">Pub Digitale</div><div class="sb-d">Dépenses mondiales en publicité online</div></div>
+    </div>
+    <h3 class="ss">Les 5 Piliers de l'Écosystème</h3>
+    <ol class="nl">
+      <li><strong>Trafic & Visibilité</strong> — Attirer les bonnes personnes au bon moment via les moteurs, les réseaux sociaux, la publicité payante et les partenariats.</li>
+      <li><strong>Capture & Relation</strong> — Transformer l'anonyme en prospect, construire une liste, établir la confiance dans la durée.</li>
+      <li><strong>Conversion & Vente</strong> — Concevoir des parcours qui transforment l'intérêt en décision d'achat, optimiser chaque étape du funnel.</li>
+      <li><strong>Fidélisation & LTV</strong> — Augmenter la valeur vie client, créer des ambassadeurs, maximiser la rentabilité long terme.</li>
+      <li><strong>Données & Optimisation</strong> — Mesurer, analyser, itérer. Les meilleures décisions sont prises avec des chiffres, pas des intuitions.</li>
+    </ol>
+    <div class="pq">
+      <p>La plupart des entreprises perdent 80 % de leur budget marketing sur des canaux mal ciblés. La vraie compétition ne se joue pas sur le budget — elle se joue sur la précision.</p>
+      <div class="pq-src">Principe fondateur du marketing de performance</div>
     </div>
   </div>
+  <div class="pf"><div class="footer-gold-bar"></div><span class="pf-num">12</span><span class="pf-site">vibcoding.com</span></div>
 </div>
 
-<!-- ===================== CHAPITRE 1 — PAGE 1 ===================== -->
-<div class="content-page">
-  <div class="page-header">
-    <span class="book-title">Digital Marketing Maîtrisé · 2026</span>
-    <span class="chapter-ref">Chapitre 01 · L'Écosystème Digital</span>
-  </div>
-  <div class="page-body">
-
-    <h2 class="section-title">Le Nouveau <span class="gold">Paysage</span> Digital</h2>
-
-    <p>En 2026, le digital est le commerce. <strong>5,4 milliards d'internautes</strong> interagissent quotidiennement avec des marques, des contenus, des offres. Chaque minute, 500 heures de vidéo sont uploadées, 6 millions de messages email partent, 1 million de dollars sont dépensés en publicité en ligne.</p>
-
-    <p>Ce n'est plus un canal parmi d'autres — c'est le <em>canal principal</em> de toute économie moderne. Comprendre sa structure, ses règles et ses opportunités est la compétence la plus précieuse qu'un entrepreneur ou marketeur puisse développer.</p>
-
-    <div class="stats-grid">
-      <div class="stat-box">
-        <div class="stat-number">5,4Md</div>
-        <div class="stat-label">Internautes</div>
-        <div class="stat-desc">67% de la population mondiale connectée</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-number">$8,5Tn</div>
-        <div class="stat-label">E-commerce</div>
-        <div class="stat-desc">Volume global prévu en 2026</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-number">$780Md</div>
-        <div class="stat-label">Pub Digitale</div>
-        <div class="stat-desc">Dépenses mondiales en publicité online</div>
-      </div>
-    </div>
-
-    <h3 class="subsection">Les 5 Piliers de l'Écosystème</h3>
-
-    <p>L'écosystème digital repose sur cinq piliers interdépendants que chaque marketeur doit maîtriser. Comprendre comment ils s'articulent vous permet d'élaborer des stratégies cohérentes et efficaces.</p>
-
-    <div class="numbered-list">
-      <ul class="numbered-list">
-        <li><strong>Trafic & Visibilité</strong> — Attirer les bonnes personnes au bon moment via les moteurs, les réseaux sociaux, la publicité payante et les partenariats.</li>
-        <li><strong>Capture & Relation</strong> — Transformer l'anonyme en prospect, construire une liste, établir la confiance dans la durée.</li>
-        <li><strong>Conversion & Vente</strong> — Concevoir des parcours qui transforment l'intérêt en décision d'achat, optimiser chaque étape.</li>
-        <li><strong>Fidélisation & LTV</strong> — Augmenter la valeur vie client, créer des ambassadeurs, maximiser la rentabilité long terme.</li>
-        <li><strong>Données & Optimisation</strong> — Mesurer, analyser, itérer. Les meilleures décisions sont prises avec des chiffres, pas des intuitions.</li>
-      </ul>
-    </div>
-
-    <div class="pull-quote">
-      <p>La plupart des entreprises perdent 80% de leur budget marketing sur des canaux mal ciblés. La vraie compétition ne se joue pas sur le budget — elle se joue sur la précision.</p>
-      <div class="quote-author">Principe fondateur du marketing de performance</div>
-    </div>
-
-  </div>
-  <div class="page-footer">
-    <div class="footer-gold-bar"></div>
-    <span class="page-number">12</span>
-    <span class="footer-text">vibcoding.com</span>
-  </div>
-</div>
-
-<!-- ===================== CHAPITRE 1 — PAGE 2 ===================== -->
-<div class="content-page">
-  <div class="page-header">
-    <span class="book-title">Digital Marketing Maîtrisé · 2026</span>
-    <span class="chapter-ref">Chapitre 01 · L'Écosystème Digital</span>
-  </div>
-  <div class="page-body">
-
-    <h3 class="subsection">Cartographie des Plateformes en 2026</h3>
-
-    <p>Le paysage des plateformes digitales évolue rapidement. En 2026, certaines dominent toujours — mais de nouveaux entrants ont redéfini les règles du jeu, notamment sous l'influence de l'IA générative et du web décentralisé.</p>
-
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Plateforme</th>
-          <th>Utilisateurs</th>
-          <th>Levier Principal</th>
-          <th>ROI Moyen</th>
-        </tr>
-      </thead>
+<!-- ═══════════ CH.01 — PAGE 13 ═══════════ -->
+<div class="P">
+  <div class="ph"><span class="ph-book">Digital Marketing Maîtrisé · 2026</span><span class="ph-chap">Ch. 01 · L'Écosystème Digital</span></div>
+  <div class="pb">
+    <h3 class="ss">Cartographie des Plateformes en 2026</h3>
+    <p>Le paysage des plateformes digitales évolue rapidement. En 2026, certaines dominent toujours — mais de nouveaux entrants ont redéfini les règles, notamment sous l'influence de l'IA générative et du commerce social.</p>
+    <table class="dt">
+      <thead><tr><th>Plateforme</th><th>Utilisateurs</th><th>Levier Principal</th><th>ROI Moyen</th></tr></thead>
       <tbody>
-        <tr>
-          <td><strong>Google / YouTube</strong></td>
-          <td>3,2 Md</td>
-          <td>Intention d'achat</td>
-          <td class="gold">×4,2</td>
-        </tr>
-        <tr>
-          <td><strong>Meta (FB + IG)</strong></td>
-          <td>3,0 Md</td>
-          <td>Ciblage démographique</td>
-          <td class="gold">×3,1</td>
-        </tr>
-        <tr>
-          <td><strong>TikTok</strong></td>
-          <td>1,9 Md</td>
-          <td>Viralité organique</td>
-          <td class="gold">×5,8</td>
-        </tr>
-        <tr>
-          <td><strong>LinkedIn</strong></td>
-          <td>1,1 Md</td>
-          <td>B2B & Expertise</td>
-          <td class="gold">×6,1</td>
-        </tr>
-        <tr>
-          <td><strong>Email Marketing</strong></td>
-          <td>4,6 Md</td>
-          <td>Ownership & LTV</td>
-          <td class="gold">×42</td>
-        </tr>
+        <tr><td><strong>Google / YouTube</strong></td><td>3,2 Md</td><td>Intention d'achat</td><td class="g">×4,2</td></tr>
+        <tr><td><strong>Meta (FB + IG)</strong></td><td>3,0 Md</td><td>Ciblage démographique</td><td class="g">×3,1</td></tr>
+        <tr><td><strong>TikTok</strong></td><td>1,9 Md</td><td>Viralité organique</td><td class="g">×5,8</td></tr>
+        <tr><td><strong>LinkedIn</strong></td><td>1,1 Md</td><td>B2B & Expertise</td><td class="g">×6,1</td></tr>
+        <tr><td><strong>Email Marketing</strong></td><td>4,6 Md</td><td>Ownership & LTV</td><td class="g">×42</td></tr>
       </tbody>
     </table>
-
-    <div class="info-box">
-      <div class="info-box-title">Insight Stratégique</div>
-      <p>L'email marketing génère le ROI le plus élevé de tous les canaux digitaux : <strong>42€ de retour pour 1€ investi</strong> en moyenne. Pourtant, c'est le canal le plus négligé par les nouveaux entrepreneurs. Votre liste email est votre actif le plus précieux.</p>
-    </div>
-
-    <h3 class="subsection">Les Mégatendances qui Redéfinissent le Marché</h3>
-
-    <p>Cinq forces structurelles transforment profondément le marketing digital en 2026. Les ignorer, c'est risquer d'investir dans des stratégies déjà obsolètes.</p>
-
-    <ul class="checklist">
-      <li><strong>IA Générative Ubiquitaire :</strong> La création de contenu, la personnalisation et l'analyse de données sont désormais assistées par l'IA dans 78% des équipes marketing performantes.</li>
+    <div class="ib"><div class="ib-t">Insight Stratégique</div><p>L'email marketing génère le ROI le plus élevé : <strong>42 € de retour pour 1 € investi</strong>. Pourtant c'est le canal le plus négligé par les nouveaux entrepreneurs. Votre liste email est votre actif le plus précieux.</p></div>
+    <h3 class="ss">Les Mégatendances qui Redéfinissent le Marché</h3>
+    <ul class="cl">
+      <li><strong>IA Générative Ubiquitaire :</strong> La création de contenu, la personnalisation et l'analyse sont assistées par l'IA dans 78 % des équipes marketing performantes.</li>
       <li><strong>Mort des Cookies Tiers :</strong> La fin du tracking cross-site oblige à repenser l'acquisition et à construire des données first-party robustes.</li>
-      <li><strong>Video-First Economy :</strong> 91% du contenu consommé sur mobile est vidéo. Les marques qui ne maîtrisent pas le format vidéo court perdent des parts de marché.</li>
+      <li><strong>Video-First Economy :</strong> 91 % du contenu consommé sur mobile est vidéo. Les marques qui ne maîtrisent pas le format court perdent des parts de marché.</li>
       <li><strong>Communautés vs. Audiences :</strong> La tendance bascule des grandes audiences passives vers les petites communautés actives — plus engagées, plus rentables.</li>
-      <li><strong>Commerce Conversationnel :</strong> Les chatbots IA, WhatsApp Business et les assistants vocaux deviennent des canaux de vente à part entière.</li>
+      <li><strong>Commerce Conversationnel :</strong> Les chatbots IA, WhatsApp Business et assistants vocaux deviennent des canaux de vente à part entière.</li>
     </ul>
-
   </div>
-  <div class="page-footer">
-    <div class="footer-gold-bar"></div>
-    <span class="page-number">13</span>
-    <span class="footer-text">vibcoding.com</span>
+  <div class="pf"><div class="footer-gold-bar"></div><span class="pf-num">13</span><span class="pf-site">vibcoding.com</span></div>
+</div>
+
+<!-- ═══════════ CH.02 OUVERTURE ═══════════ -->
+<div class="cop">
+  <div class="cop-stripe"></div>
+  <div class="cop-bgn">02</div>
+  <div class="cop-body">
+    <div class="cop-part">Partie I · Fondations Stratégiques</div>
+    <div class="cop-num">Chapitre Deux</div>
+    <div class="cop-title">Psychologie de<br>l'<span class="a">Acheteur</span></div>
+    <div class="cop-rule"></div>
+    <div class="cop-quote">« Les gens n'achètent pas des produits. Ils achètent des versions améliorées d'eux-mêmes. »</div>
   </div>
 </div>
 
-<!-- ===================== CHAPITRE 2 OPENER ===================== -->
-<div class="chapter-opener">
-  <div class="chapter-top-stripe"></div>
-  <div class="chapter-bg-number">02</div>
-  <div class="chapter-content">
-    <div class="chapter-part">Partie I · Fondations Stratégiques</div>
-    <div class="chapter-num">Chapitre Deux</div>
-    <div class="chapter-title">Psychologie de<br>l'<span class="accent">Acheteur</span></div>
-    <div class="chapter-divider"></div>
-    <div class="chapter-intro-quote">
-      « Les gens n'achètent pas des produits. Ils achètent des versions améliorées d'eux-mêmes. »
-    </div>
-  </div>
-</div>
-
-<!-- ===================== CHAPITRE 2 — PAGE 1 ===================== -->
-<div class="content-page">
-  <div class="page-header">
-    <span class="book-title">Digital Marketing Maîtrisé · 2026</span>
-    <span class="chapter-ref">Chapitre 02 · Psychologie de l'Acheteur</span>
-  </div>
-  <div class="page-body">
-
-    <h2 class="section-title">Comprendre pour <span class="gold">Convertir</span></h2>
-
+<!-- ═══════════ CH.02 — PAGE 30 ═══════════ -->
+<div class="P">
+  <div class="ph"><span class="ph-book">Digital Marketing Maîtrisé · 2026</span><span class="ph-chap">Ch. 02 · Psychologie de l'Acheteur</span></div>
+  <div class="pb">
+    <h2 class="st">Comprendre pour <span class="g">Convertir</span></h2>
     <p>Le marketing qui fonctionne ne vend pas des caractéristiques — il vend des <strong>transformations</strong>. Chaque acte d'achat est avant tout une décision émotionnelle, rationalisée après coup. Comprendre cette mécanique psychologique est le levier le plus puissant du marketing digital.</p>
-
-    <div class="key-concept">
+    <div class="kc">
       <h4>La Hiérarchie des Motivations d'Achat</h4>
-      <p>Toute décision d'achat est motivée par l'un de ces quatre moteurs fondamentaux : <strong>éviter la douleur, gagner du plaisir, économiser du temps, ou gagner du statut.</strong> Votre message doit activer au moins l'un d'eux explicitement.</p>
+      <p>Toute décision d'achat est motivée par l'un de ces quatre moteurs : <strong>éviter la douleur, gagner du plaisir, économiser du temps, ou gagner du statut.</strong> Votre message doit en activer au moins un explicitement.</p>
     </div>
-
-    <h3 class="subsection">Les 7 Déclencheurs Psychologiques</h3>
-
-    <div class="strategy-grid">
-      <div class="strategy-card">
-        <div class="strategy-card-num">01</div>
-        <div class="strategy-card-title">Preuve Sociale</div>
-        <p>Les avis, témoignages et cas clients réduisent le risque perçu et valident la décision. 93% des acheteurs lisent les avis avant d'acheter.</p>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-card-num">02</div>
-        <div class="strategy-card-title">Rareté & Urgence</div>
-        <p>Les offres limitées dans le temps ou en quantité activent la peur de manquer (FOMO) et accélèrent la prise de décision.</p>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-card-num">03</div>
-        <div class="strategy-card-title">Autorité</div>
-        <p>L'expertise perçue réduit les frictions. Certifications, médias, associations à des marques connues renforcent la crédibilité.</p>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-card-num">04</div>
-        <div class="strategy-card-title">Réciprocité</div>
-        <p>Donner de la valeur gratuitement crée un sentiment de dette psychologique. Les lead magnets exploitent ce biais efficacement.</p>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-card-num">05</div>
-        <div class="strategy-card-title">Cohérence</div>
-        <p>Une fois qu'une personne dit oui à un petit engagement, elle est plus susceptible de dire oui à un engagement plus grand.</p>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-card-num">06</div>
-        <div class="strategy-card-title">Biais d'Ancrage</div>
-        <p>Le premier prix vu devient la référence. Présenter un prix barré avant votre prix réel augmente la valeur perçue de l'offre.</p>
-      </div>
+    <h3 class="ss">Les 6 Déclencheurs Psychologiques Clés</h3>
+    <div class="g2">
+      <div class="gc"><div class="gc-n">01</div><div class="gc-t">Preuve Sociale</div><p>Avis, témoignages et cas clients réduisent le risque perçu. 93 % des acheteurs lisent les avis avant d'acheter.</p></div>
+      <div class="gc"><div class="gc-n">02</div><div class="gc-t">Rareté & Urgence</div><p>Les offres limitées activent la peur de manquer (FOMO) et accélèrent la prise de décision.</p></div>
+      <div class="gc"><div class="gc-n">03</div><div class="gc-t">Autorité</div><p>Expertise perçue, certifications, médias et associations à des marques connues renforcent la crédibilité.</p></div>
+      <div class="gc"><div class="gc-n">04</div><div class="gc-t">Réciprocité</div><p>Donner de la valeur gratuitement crée un sentiment de dette psychologique — les lead magnets exploitent ce biais.</p></div>
+      <div class="gc"><div class="gc-n">05</div><div class="gc-t">Cohérence</div><p>Une fois qu'une personne dit oui à un petit engagement, elle est plus susceptible de dire oui à un plus grand.</p></div>
+      <div class="gc"><div class="gc-n">06</div><div class="gc-t">Biais d'Ancrage</div><p>Le premier prix vu devient la référence. Présenter un prix barré augmente la valeur perçue de l'offre.</p></div>
     </div>
-
-    <div class="section-divider">
-      <div class="line"></div>
-      <div class="diamond">◆</div>
-      <div class="line"></div>
-    </div>
-
-    <h3 class="subsection">Le Parcours Décisionnel Moderne</h3>
-
-    <p>Le tunnel d'achat classique (Attention → Intérêt → Désir → Action) est obsolète. En 2026, le parcours est <em>non linéaire, multicanal et récursif</em>. Un prospect peut vous découvrir sur TikTok, rechercher sur Google, lire vos emails, hésiter pendant 3 semaines, puis acheter après avoir vu un retargeting sur Instagram.</p>
-
-    <div class="highlight-row">
-      ⚡ En moyenne, un prospect a besoin de <strong>7 à 12 points de contact</strong> avant de prendre une décision d'achat en 2026.
-    </div>
-
-    <p>Votre rôle est de <strong>contrôler un maximum de ces points de contact</strong> et de maintenir un message cohérent à travers chacun d'eux. C'est ce qu'on appelle une stratégie omnicanale intégrée.</p>
-
+    <h3 class="ss">Le Parcours Décisionnel Moderne</h3>
+    <p>Le tunnel classique (Attention → Intérêt → Désir → Action) est obsolète. En 2026, le parcours est <em>non linéaire, multicanal et récursif</em>. Un prospect peut vous découvrir sur TikTok, chercher sur Google, lire vos emails, hésiter 3 semaines, puis acheter après un retargeting Instagram.</p>
+    <div class="hl">⚡ En moyenne, un prospect a besoin de <strong>7 à 12 points de contact</strong> avant de prendre une décision d'achat en 2026.</div>
   </div>
-  <div class="page-footer">
-    <div class="footer-gold-bar"></div>
-    <span class="page-number">34</span>
-    <span class="footer-text">vibcoding.com</span>
+  <div class="pf"><div class="footer-gold-bar"></div><span class="pf-num">30</span><span class="pf-site">vibcoding.com</span></div>
+</div>
+
+<!-- ═══════════ CH.03 OUVERTURE ═══════════ -->
+<div class="cop">
+  <div class="cop-stripe"></div>
+  <div class="cop-bgn">03</div>
+  <div class="cop-body">
+    <div class="cop-part">Partie I · Fondations Stratégiques</div>
+    <div class="cop-num">Chapitre Trois</div>
+    <div class="cop-title">Positionnement<br>& <span class="a">Offre</span></div>
+    <div class="cop-rule"></div>
+    <div class="cop-quote">« Dans un marché bruyant, la clarté est un avantage concurrentiel. Celui qui parle à tout le monde ne parle à personne. »</div>
   </div>
 </div>
 
-<!-- ===================== PART II SEPARATOR ===================== -->
-<div class="part-separator">
-  <div class="part-bg">II</div>
-  <div class="part-center">
-    <div class="part-label">Deuxième Partie</div>
-    <div class="part-number">II</div>
-    <div class="part-title">Acquisition & Trafic</div>
-    <div class="part-line"></div>
+<!-- ═══════════ CH.03 — PAGE 50 ═══════════ -->
+<div class="P">
+  <div class="ph"><span class="ph-book">Digital Marketing Maîtrisé · 2026</span><span class="ph-chap">Ch. 03 · Positionnement & Offre</span></div>
+  <div class="pb">
+    <h2 class="st">Se Différencier dans <span class="g">le Bruit</span></h2>
+    <p>Le positionnement est la décision stratégique la plus importante de votre business. Ce n'est pas votre slogan — c'est la place que vous occupez dans l'esprit de votre cible. Un positionnement fort rend la concurrence non pertinente et permet de facturer des prix premium.</p>
+    <h3 class="ss">Les 3 Axes du Positionnement Gagnant</h3>
+    <ul class="cl">
+      <li><strong>Niche précise :</strong> Parler à un segment ultra-spécifique plutôt qu'au marché général. Plus vous vous spécialisez, plus vous devenez la référence incontournable.</li>
+      <li><strong>Proposition de valeur unique (UVP) :</strong> Formuler en une phrase ce que vous faites, pour qui, et pourquoi c'est différent. Si vous ne pouvez pas l'expliquer en 10 secondes, personne ne le comprendra.</li>
+      <li><strong>Preuve de résultat :</strong> Chiffres, cas clients, témoignages. Dans l'économie de l'attention, la preuve vaut plus que la promesse.</li>
+    </ul>
+    <div class="kc">
+      <h4>La Formule de l'Offre Irrésistible</h4>
+      <p>Une offre irrésistible = <strong>Résultat désiré</strong> + <strong>Délai court</strong> + <strong>Effort minimum</strong> + <strong>Garantie de risque</strong>. Chaque élément manquant réduit votre taux de conversion.</p>
+    </div>
+    <h3 class="ss">Construire une Offre qui se Vend Seule</h3>
+    <ol class="nl">
+      <li><strong>Identifier la douleur #1 :</strong> Quelle est la frustration principale de votre cible ? C'est autour d'elle que vous construisez tout.</li>
+      <li><strong>Promettre le résultat spécifique :</strong> Pas "améliorer votre marketing" mais "générer 50 leads qualifiés en 30 jours."</li>
+      <li><strong>Empiler la valeur :</strong> Bonus, guides, templates, accès communauté — augmenter la valeur perçue sans augmenter le prix.</li>
+      <li><strong>Réduire le risque :</strong> Garantie satisfait-ou-remboursé, essai gratuit, garantie de résultat. Moins le risque est perçu, plus le oui est facile.</li>
+      <li><strong>Créer l'urgence :</strong> Bonus limités dans le temps, places limitées, prix d'entrée. Sans urgence, la décision est toujours repoussée.</li>
+    </ol>
+    <div class="pq">
+      <p>Le prix de votre offre ne dépend pas de ce que ça vous coûte à produire. Il dépend de la valeur perçue par votre client et de la douleur que vous résolvez.</p>
+      <div class="pq-src">Alex Hormozi — $100M Offers</div>
+    </div>
+  </div>
+  <div class="pf"><div class="footer-gold-bar"></div><span class="pf-num">50</span><span class="pf-site">vibcoding.com</span></div>
+</div>
+
+<!-- ═══════════ PARTIE II ═══════════ -->
+<div class="psep">
+  <div class="psep-bg">II</div>
+  <div class="psep-c">
+    <div class="psep-lbl">Deuxième Partie</div>
+    <div class="psep-num">II</div>
+    <div class="psep-ttl">Acquisition & Trafic</div>
+    <div class="psep-rule"></div>
   </div>
 </div>
 
-<!-- ===================== CHAPITRE 4 OPENER ===================== -->
-<div class="chapter-opener">
-  <div class="chapter-top-stripe"></div>
-  <div class="chapter-bg-number">04</div>
-  <div class="chapter-content">
-    <div class="chapter-part">Partie II · Acquisition & Trafic</div>
-    <div class="chapter-num">Chapitre Quatre</div>
-    <div class="chapter-title">SEO & Contenu<br><span class="accent">Organique</span></div>
-    <div class="chapter-divider"></div>
-    <div class="chapter-intro-quote">
-      « Le meilleur endroit pour cacher un cadavre est la deuxième page de Google. Le meilleur endroit pour votre offre est la première. »
-    </div>
+<!-- ═══════════ CH.04 OUVERTURE ═══════════ -->
+<div class="cop">
+  <div class="cop-stripe"></div>
+  <div class="cop-bgn">04</div>
+  <div class="cop-body">
+    <div class="cop-part">Partie II · Acquisition & Trafic</div>
+    <div class="cop-num">Chapitre Quatre</div>
+    <div class="cop-title">SEO & Contenu<br><span class="a">Organique</span></div>
+    <div class="cop-rule"></div>
+    <div class="cop-quote">« Le meilleur endroit pour cacher un cadavre est la deuxième page de Google. Le meilleur endroit pour votre offre est la première. »</div>
   </div>
 </div>
 
-<!-- ===================== CHAPITRE 4 — PAGE 1 ===================== -->
-<div class="content-page">
-  <div class="page-header">
-    <span class="book-title">Digital Marketing Maîtrisé · 2026</span>
-    <span class="chapter-ref">Chapitre 04 · SEO & Contenu Organique</span>
-  </div>
-  <div class="page-body">
-
-    <h2 class="section-title">Dominer les Moteurs <span class="gold">de Recherche</span></h2>
-
-    <p>Le SEO en 2026 n'est plus une affaire de mots-clés bourrés dans des textes sans âme. Google et les autres moteurs de recherche sont devenus <strong>extraordinairement sophistiqués</strong> dans leur compréhension du contenu, de l'intention et de la qualité. La bonne nouvelle : les bases restent immuables.</p>
-
-    <div class="stats-grid">
-      <div class="stat-box">
-        <div class="stat-number">92%</div>
-        <div class="stat-label">Clics Page 1</div>
-        <div class="stat-desc">Du trafic total reste sur la première page</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-number">0,13%</div>
-        <div class="stat-label">Taux Page 2</div>
-        <div class="stat-desc">Taux de clic moyen en 2ème page Google</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-number">×14,6</div>
-        <div class="stat-label">ROI vs Outbound</div>
-        <div class="stat-desc">Le SEO convertit 14× mieux que la pub froide</div>
-      </div>
+<!-- ═══════════ CH.04 — PAGE 70 ═══════════ -->
+<div class="P">
+  <div class="ph"><span class="ph-book">Digital Marketing Maîtrisé · 2026</span><span class="ph-chap">Ch. 04 · SEO & Contenu Organique</span></div>
+  <div class="pb">
+    <h2 class="st">Dominer les Moteurs <span class="g">de Recherche</span></h2>
+    <p>Le SEO en 2026 n'est plus une affaire de mots-clés bourrés dans des textes sans âme. Google est devenu <strong>extraordinairement sophistiqué</strong> dans sa compréhension du contenu et de l'intention. La bonne nouvelle : les bases restent immuables.</p>
+    <div class="sr">
+      <div class="sb"><div class="sb-n">92 %</div><div class="sb-l">Clics Page 1</div><div class="sb-d">Du trafic reste sur la première page Google</div></div>
+      <div class="sb"><div class="sb-n">0,13 %</div><div class="sb-l">Taux Page 2</div><div class="sb-d">Taux de clic moyen en 2ème page Google</div></div>
+      <div class="sb"><div class="sb-n">×14,6</div><div class="sb-l">ROI vs Outbound</div><div class="sb-d">Le SEO convertit 14× mieux que la pub froide</div></div>
     </div>
-
-    <h3 class="subsection">Les 3 Piliers du SEO Moderne</h3>
-
-    <p>Quel que soit l'algorithme du moment, le SEO repose sur trois piliers fondamentaux. Maîtrisez-les et vous aurez un avantage concurrentiel durable.</p>
-
-    <ul class="checklist">
-      <li><strong>Technique :</strong> Vitesse de chargement, Core Web Vitals, structure du site, indexabilité, HTTPS, données structurées. Google ne peut pas classer ce qu'il ne peut pas crawler correctement.</li>
-      <li><strong>Contenu & Pertinence :</strong> Créer du contenu qui répond précisément à l'intention de recherche. En 2026, l'IA de Google (Gemini Ultra) comprend le contexte et la sémantique — le contenu superficiel est pénalisé.</li>
+    <h3 class="ss">Les 3 Piliers du SEO Moderne</h3>
+    <ul class="cl">
+      <li><strong>Technique :</strong> Vitesse de chargement, Core Web Vitals, structure du site, indexabilité, HTTPS, données structurées. Google ne peut pas classer ce qu'il ne peut pas crawler.</li>
+      <li><strong>Contenu & Pertinence :</strong> Créer du contenu qui répond précisément à l'intention de recherche. En 2026, l'IA de Google comprend la sémantique — le contenu superficiel est pénalisé.</li>
       <li><strong>Autorité & Backlinks :</strong> Les liens entrants de sites de qualité restent le signal de confiance le plus puissant. Un backlink d'un site d'autorité vaut 1000 liens de mauvais sites.</li>
     </ul>
-
-    <div class="info-box">
-      <div class="info-box-title">SEO & IA en 2026</div>
-      <p>Les recherches IA (via Google AI Overviews, Perplexity, ChatGPT Search) représentent désormais <strong>23% du volume de recherche total</strong>. Optimiser pour ces nouveaux formats — réponses directes, FAQ structurées, données lisibles par les LLMs — est devenu indispensable.</p>
-    </div>
-
-    <h3 class="subsection">Stratégie de Contenu à Haute Valeur</h3>
-
-    <p>Le content marketing qui performe en 2026 suit un modèle précis : créer des <strong>ressources de référence</strong> sur votre sujet, pas simplement du contenu de remplissage. Une page qui répond mieux à une question que tout autre site sur internet mérite naturellement la première position.</p>
-
-    <div class="numbered-list">
-      <ul class="numbered-list">
-        <li><strong>Recherche de mots-clés orientée intention :</strong> Identifier les requêtes transactionnelles, informationnelles et navigationnelles. Prioriser les mots-clés à forte intention commerciale.</li>
-        <li><strong>Cluster de contenu thématique :</strong> Créer une page pilier exhaustive sur un sujet central, entourée de pages satellites liées. Signal fort d'expertise pour Google.</li>
-        <li><strong>Contenu EEAT :</strong> Expérience, Expertise, Autorité, Fiabilité — les critères de Google pour évaluer la qualité. Vos auteurs doivent être crédibles et identifiables.</li>
-        <li><strong>Mise à jour régulière :</strong> Un contenu actualisé est un signal fort. Les articles datés perdent des positions. Planifiez des révisions trimestrielles.</li>
-      </ul>
-    </div>
-
+    <div class="ib"><div class="ib-t">SEO & IA en 2026</div><p>Les recherches IA (Google AI Overviews, Perplexity, ChatGPT Search) représentent <strong>23 % du volume de recherche total</strong>. Optimiser pour ces nouveaux formats — réponses directes, FAQ structurées — est devenu indispensable.</p></div>
+    <h3 class="ss">Stratégie de Contenu à Haute Valeur</h3>
+    <ol class="nl">
+      <li><strong>Recherche de mots-clés orientée intention :</strong> Identifier les requêtes transactionnelles, informationnelles et navigationnelles. Prioriser les mots-clés à forte intention commerciale.</li>
+      <li><strong>Cluster de contenu thématique :</strong> Créer une page pilier exhaustive entourée de pages satellites liées. Signal fort d'expertise pour Google.</li>
+      <li><strong>Contenu EEAT :</strong> Expérience, Expertise, Autorité, Fiabilité — les critères de Google pour évaluer la qualité.</li>
+      <li><strong>Mise à jour régulière :</strong> Un contenu actualisé est un signal fort. Les articles datés perdent des positions. Planifiez des révisions trimestrielles.</li>
+    </ol>
   </div>
-  <div class="page-footer">
-    <div class="footer-gold-bar"></div>
-    <span class="page-number">80</span>
-    <span class="footer-text">vibcoding.com</span>
+  <div class="pf"><div class="footer-gold-bar"></div><span class="pf-num">70</span><span class="pf-site">vibcoding.com</span></div>
+</div>
+
+<!-- ═══════════ CH.05 OUVERTURE ═══════════ -->
+<div class="cop">
+  <div class="cop-stripe"></div>
+  <div class="cop-bgn">05</div>
+  <div class="cop-body">
+    <div class="cop-part">Partie II · Acquisition & Trafic</div>
+    <div class="cop-num">Chapitre Cinq</div>
+    <div class="cop-title">Publicité<br><span class="a">Payante</span></div>
+    <div class="cop-rule"></div>
+    <div class="cop-quote">« La publicité payante est un amplificateur — elle amplifie ce qui fonctionne comme ce qui ne fonctionne pas. Validez d'abord, scalez ensuite. »</div>
   </div>
 </div>
 
-<!-- ===================== PART III SEPARATOR ===================== -->
-<div class="part-separator">
-  <div class="part-bg">III</div>
-  <div class="part-center">
-    <div class="part-label">Troisième Partie</div>
-    <div class="part-number">III</div>
-    <div class="part-title">Conversion & Systèmes</div>
-    <div class="part-line"></div>
-  </div>
-</div>
-
-<!-- ===================== CHAPITRE 7 OPENER ===================== -->
-<div class="chapter-opener">
-  <div class="chapter-top-stripe"></div>
-  <div class="chapter-bg-number">07</div>
-  <div class="chapter-content">
-    <div class="chapter-part">Partie III · Conversion & Systèmes</div>
-    <div class="chapter-num">Chapitre Sept</div>
-    <div class="chapter-title">Email Marketing<br>& <span class="accent">Automation</span></div>
-    <div class="chapter-divider"></div>
-    <div class="chapter-intro-quote">
-      « Votre liste email est le seul actif digital que personne ne peut vous enlever. Pas Google. Pas Meta. Pas TikTok. »
-    </div>
-  </div>
-</div>
-
-<!-- ===================== CHAPITRE 7 — PAGE 1 ===================== -->
-<div class="content-page">
-  <div class="page-header">
-    <span class="book-title">Digital Marketing Maîtrisé · 2026</span>
-    <span class="chapter-ref">Chapitre 07 · Email Marketing & Automation</span>
-  </div>
-  <div class="page-body">
-
-    <h2 class="section-title">Vendre Pendant <span class="gold">que Vous Dormez</span></h2>
-
-    <p>L'email marketing reste, en 2026, le canal avec le meilleur retour sur investissement de tout le marketing digital. <strong>42€ de retour pour 1€ investi.</strong> Ce chiffre résiste à l'épreuve du temps parce que l'email, contrairement aux réseaux sociaux, vous appartient.</p>
-
-    <p>Quand Instagram change son algorithme, votre reach s'effondre. Quand Google pénalise votre site, votre trafic disparaît. Mais votre liste email reste. Ce sont vos prospects et clients, à vous, pour toujours.</p>
-
-    <div class="key-concept">
-      <h4>La Machine Email Automatisée</h4>
-      <p>Un système d'email marketing bien conçu fonctionne <strong>24h/24, 7j/7</strong>, sans intervention humaine. Il accueille les nouveaux abonnés, éduque les prospects, relance les abandons de panier, et génère des ventes — automatiquement.</p>
-    </div>
-
-    <h3 class="subsection">Architecture d'une Séquence Email Qui Vend</h3>
-
-    <p>Toute séquence email performante suit un arc narratif : construire la relation, démontrer la valeur, lever les objections, puis proposer l'offre au moment optimal.</p>
-
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Email</th>
-          <th>Objectif</th>
-          <th>Timing</th>
-          <th>Taux d'ouverture cible</th>
-        </tr>
-      </thead>
+<!-- ═══════════ CH.05 — PAGE 90 ═══════════ -->
+<div class="P">
+  <div class="ph"><span class="ph-book">Digital Marketing Maîtrisé · 2026</span><span class="ph-chap">Ch. 05 · Publicité Payante</span></div>
+  <div class="pb">
+    <h2 class="st">Google, Meta <span class="g">& TikTok Ads</span></h2>
+    <p>La publicité payante permet de <strong>générer du trafic qualifié immédiatement</strong>, sans attendre les mois que prend le SEO. C'est un accélérateur puissant — mais uniquement si votre offre et votre tunnel sont déjà validés. Brûler du budget sur une offre mal positionnée ne fait qu'accélérer les pertes.</p>
+    <h3 class="ss">Choisir la Bonne Plateforme</h3>
+    <table class="dt">
+      <thead><tr><th>Plateforme</th><th>Type de trafic</th><th>Idéal pour</th><th>Budget min.</th></tr></thead>
       <tbody>
-        <tr>
-          <td><strong>J+0 : Bienvenue</strong></td>
-          <td>Délivrer la promesse, présenter la marque</td>
-          <td>Immédiat</td>
-          <td class="gold">55–70%</td>
-        </tr>
-        <tr>
-          <td><strong>J+1 : Histoire</strong></td>
-          <td>Créer la connexion émotionnelle</td>
-          <td>+24h</td>
-          <td class="gold">35–50%</td>
-        </tr>
-        <tr>
-          <td><strong>J+3 : Valeur</strong></td>
-          <td>Démontrer expertise, éduquer</td>
-          <td>+48h</td>
-          <td class="gold">30–45%</td>
-        </tr>
-        <tr>
-          <td><strong>J+5 : Objections</strong></td>
-          <td>Lever les freins à l'achat</td>
-          <td>+48h</td>
-          <td class="gold">28–40%</td>
-        </tr>
-        <tr>
-          <td><strong>J+7 : Offre</strong></td>
-          <td>Présenter l'offre avec urgence</td>
-          <td>+48h</td>
-          <td class="gold">40–55%</td>
-        </tr>
-        <tr>
-          <td><strong>J+9 : Relance</strong></td>
-          <td>Dernière chance, lever les derniers doutes</td>
-          <td>+48h</td>
-          <td class="gold">35–50%</td>
-        </tr>
+        <tr><td><strong>Google Search</strong></td><td>Intention chaude</td><td>Produits avec demande existante</td><td class="g">500€/mois</td></tr>
+        <tr><td><strong>Meta Ads</strong></td><td>Interruption ciblée</td><td>Produits visuels, e-commerce, info</td><td class="g">300€/mois</td></tr>
+        <tr><td><strong>TikTok Ads</strong></td><td>Entertainment + viral</td><td>Produits 18-35 ans, forte créativité</td><td class="g">200€/mois</td></tr>
+        <tr><td><strong>YouTube Ads</strong></td><td>Intention + émotion</td><td>Offres premium, B2B, high-ticket</td><td class="g">800€/mois</td></tr>
       </tbody>
     </table>
-
-    <div class="pull-quote">
-      <p>La plupart des entrepreneurs envoient un email de bienvenue, puis disparaissent pendant des semaines. Puis ils « spamment » une promo sans contexte. C'est la recette pour des désinscriptions massives.</p>
-      <div class="quote-author">Erreur fondamentale à éviter</div>
+    <h3 class="ss">La Structure d'une Campagne Rentable</h3>
+    <ol class="nl">
+      <li><strong>Définir l'objectif :</strong> Awareness, trafic, conversions ou ventes. Chaque objectif correspond à un type de campagne différent.</li>
+      <li><strong>Cibler précisément :</strong> Audiences froides (intérêts), tièdes (engagement), chaudes (retargeting). Ne mélangez pas les niveaux de conscience.</li>
+      <li><strong>Créer des visuels qui arrêtent le scroll :</strong> Les 3 premières secondes décident tout. Testez 3 à 5 créatifs différents par audience.</li>
+      <li><strong>Optimiser la page de destination :</strong> Une pub ne vend pas — elle clique. La page de destination vend. Un mauvais landing page gaspille 90 % du budget.</li>
+      <li><strong>Tester, mesurer, scaler :</strong> Lancer petit (10–30 €/jour), identifier ce qui fonctionne, scaler ce qui performe. Ne pas scaler l'échec.</li>
+    </ol>
+    <div class="pq">
+      <p>Le ROAS (Return on Ad Spend) moyen d'une campagne optimisée est de 3 à 5× pour l'e-commerce, et peut atteindre 10× pour les offres digitales à forte marge.</p>
+      <div class="pq-src">Benchmark industrie 2026</div>
     </div>
+  </div>
+  <div class="pf"><div class="footer-gold-bar"></div><span class="pf-num">90</span><span class="pf-site">vibcoding.com</span></div>
+</div>
 
-    <h4 class="sub-sub">Les 5 Types d'Emails Indispensables</h4>
-    <ul class="checklist">
+<!-- ═══════════ CH.06 OUVERTURE ═══════════ -->
+<div class="cop">
+  <div class="cop-stripe"></div>
+  <div class="cop-bgn">06</div>
+  <div class="cop-body">
+    <div class="cop-part">Partie II · Acquisition & Trafic</div>
+    <div class="cop-num">Chapitre Six</div>
+    <div class="cop-title">Réseaux Sociaux<br>& <span class="a">Influence</span></div>
+    <div class="cop-rule"></div>
+    <div class="cop-quote">« Une audience vous appartient rarement. Une communauté, toujours. Construisez des relations, pas des followers. »</div>
+  </div>
+</div>
+
+<!-- ═══════════ CH.06 — PAGE 112 ═══════════ -->
+<div class="P">
+  <div class="ph"><span class="ph-book">Digital Marketing Maîtrisé · 2026</span><span class="ph-chap">Ch. 06 · Réseaux Sociaux & Influence</span></div>
+  <div class="pb">
+    <h2 class="st">Construire une <span class="g">Audience</span></h2>
+    <p>Les réseaux sociaux sont le canal le plus puissant pour construire la notoriété et la confiance à grande échelle. Mais en 2026, <em>la portée organique a dramatiquement diminué</em> sur la plupart des plateformes. La clé n'est plus de publier en quantité, mais de créer du contenu qui génère de l'engagement réel.</p>
+    <div class="kc">
+      <h4>La Règle du Contenu 80/20</h4>
+      <p><strong>80 % de valeur gratuite</strong> (éducation, inspiration, entertainment) pour <strong>20 % de promotion</strong>. Les comptes qui ne font que vendre perdent leur audience. Ceux qui apportent de la valeur construisent une communauté qui achète.</p>
+    </div>
+    <h3 class="ss">Les 4 Formats qui Dominent en 2026</h3>
+    <div class="g2">
+      <div class="gc"><div class="gc-n">Format 01</div><div class="gc-t">Vidéo Court (Reels / TikTok)</div><p>Portée organique maximale. Format roi de la découverte. Durée idéale : 15 à 60 secondes.</p></div>
+      <div class="gc"><div class="gc-n">Format 02</div><div class="gc-t">Carrousels (LinkedIn / IG)</div><p>Fort engagement, sauvegardé massivement. Idéal pour l'éducation et les statistiques.</p></div>
+      <div class="gc"><div class="gc-n">Format 03</div><div class="gc-t">Newsletters & Podcasts</div><p>Audience captive, haute fidélité, pas dépendant d'un algorithme. Idéal pour le long terme.</p></div>
+      <div class="gc"><div class="gc-n">Format 04</div><div class="gc-t">Lives & Webinaires</div><p>Connexion humaine maximale. Conversion de 3 à 5× supérieure au contenu pré-enregistré.</p></div>
+    </div>
+    <h3 class="ss">Marketing d'Influence : Choisir les Bons Partenaires</h3>
+    <ul class="cl">
+      <li><strong>Nano-influenceurs (1 K–10 K) :</strong> Taux d'engagement le plus élevé (8–15 %). Audience de niche, très ciblée. Coût faible, impact fort.</li>
+      <li><strong>Micro-influenceurs (10 K–100 K) :</strong> Meilleur rapport portée/engagement. Recommandés pour la plupart des campagnes.</li>
+      <li><strong>Macro-influenceurs (100 K+) :</strong> Grande portée mais engagement faible. Utile pour la notoriété de marque uniquement.</li>
+    </ul>
+    <div class="hl">✓ Mesurez toujours le coût par clic ou par vente — jamais uniquement les impressions ou les likes.</div>
+  </div>
+  <div class="pf"><div class="footer-gold-bar"></div><span class="pf-num">112</span><span class="pf-site">vibcoding.com</span></div>
+</div>
+
+<!-- ═══════════ PARTIE III ═══════════ -->
+<div class="psep">
+  <div class="psep-bg">III</div>
+  <div class="psep-c">
+    <div class="psep-lbl">Troisième Partie</div>
+    <div class="psep-num">III</div>
+    <div class="psep-ttl">Conversion & Systèmes</div>
+    <div class="psep-rule"></div>
+  </div>
+</div>
+
+<!-- ═══════════ CH.07 OUVERTURE ═══════════ -->
+<div class="cop">
+  <div class="cop-stripe"></div>
+  <div class="cop-bgn">07</div>
+  <div class="cop-body">
+    <div class="cop-part">Partie III · Conversion & Systèmes</div>
+    <div class="cop-num">Chapitre Sept</div>
+    <div class="cop-title">Email Marketing<br>& <span class="a">Automation</span></div>
+    <div class="cop-rule"></div>
+    <div class="cop-quote">« Votre liste email est le seul actif digital que personne ne peut vous enlever. Pas Google. Pas Meta. Pas TikTok. »</div>
+  </div>
+</div>
+
+<!-- ═══════════ CH.07 — PAGE 134 ═══════════ -->
+<div class="P">
+  <div class="ph"><span class="ph-book">Digital Marketing Maîtrisé · 2026</span><span class="ph-chap">Ch. 07 · Email Marketing & Automation</span></div>
+  <div class="pb">
+    <h2 class="st">Vendre Pendant <span class="g">que Vous Dormez</span></h2>
+    <p>L'email marketing reste, en 2026, le canal avec le meilleur ROI de tout le digital : <strong>42 € de retour pour 1 € investi</strong>. Ce chiffre résiste à l'épreuve du temps parce que l'email, contrairement aux réseaux sociaux, vous appartient.</p>
+    <p>Quand Instagram change son algorithme, votre reach s'effondre. Quand Google pénalise votre site, votre trafic disparaît. Mais votre liste email reste. Ce sont vos prospects et clients, à vous, pour toujours.</p>
+    <h3 class="ss">Architecture d'une Séquence Email Qui Vend</h3>
+    <table class="dt">
+      <thead><tr><th>Email</th><th>Objectif</th><th>Timing</th><th>Ouverture cible</th></tr></thead>
+      <tbody>
+        <tr><td><strong>J+0 : Bienvenue</strong></td><td>Délivrer la promesse, présenter la marque</td><td>Immédiat</td><td class="g">55–70 %</td></tr>
+        <tr><td><strong>J+1 : Histoire</strong></td><td>Créer la connexion émotionnelle</td><td>+24h</td><td class="g">35–50 %</td></tr>
+        <tr><td><strong>J+3 : Valeur</strong></td><td>Démontrer expertise, éduquer</td><td>+48h</td><td class="g">30–45 %</td></tr>
+        <tr><td><strong>J+5 : Objections</strong></td><td>Lever les freins à l'achat</td><td>+48h</td><td class="g">28–40 %</td></tr>
+        <tr><td><strong>J+7 : Offre</strong></td><td>Présenter l'offre avec urgence</td><td>+48h</td><td class="g">40–55 %</td></tr>
+        <tr><td><strong>J+9 : Relance</strong></td><td>Dernière chance, lever les doutes</td><td>+48h</td><td class="g">35–50 %</td></tr>
+      </tbody>
+    </table>
+    <h3 class="ss">Les 5 Types d'Emails Indispensables</h3>
+    <ul class="cl">
       <li><strong>Séquence d'accueil (Welcome) :</strong> Les 5–7 premiers emails qui posent les bases de la relation.</li>
       <li><strong>Newsletter régulière :</strong> Contenu de valeur hebdomadaire ou bimensuel pour maintenir l'engagement.</li>
       <li><strong>Séquence de nurturing :</strong> Éducation progressive vers votre offre principale.</li>
-      <li><strong>Emails de relance (Re-engagement) :</strong> Réactiver les abonnés inactifs avant de les supprimer.</li>
+      <li><strong>Emails de relance :</strong> Réactiver les abonnés inactifs avant de les supprimer de la liste.</li>
       <li><strong>Emails post-achat :</strong> Onboarding clients, upsells, fidélisation et demandes de témoignages.</li>
     </ul>
-
+    <div class="pq">
+      <p>La plupart des entrepreneurs envoient un email de bienvenue, puis disparaissent des semaines. Puis ils spamment une promo sans contexte. C'est la recette pour des désinscriptions massives.</p>
+      <div class="pq-src">Erreur fondamentale à éviter</div>
+    </div>
   </div>
-  <div class="page-footer">
-    <div class="footer-gold-bar"></div>
-    <span class="page-number">150</span>
-    <span class="footer-text">vibcoding.com</span>
+  <div class="pf"><div class="footer-gold-bar"></div><span class="pf-num">134</span><span class="pf-site">vibcoding.com</span></div>
+</div>
+
+<!-- ═══════════ CH.08 OUVERTURE ═══════════ -->
+<div class="cop">
+  <div class="cop-stripe"></div>
+  <div class="cop-bgn">08</div>
+  <div class="cop-body">
+    <div class="cop-part">Partie III · Conversion & Systèmes</div>
+    <div class="cop-num">Chapitre Huit</div>
+    <div class="cop-title">Tunnels<br>de <span class="a">Vente</span></div>
+    <div class="cop-rule"></div>
+    <div class="cop-quote">« Un tunnel de vente bien conçu travaille pour vous 24h/24. C'est le meilleur commercial que vous n'aurez jamais à payer. »</div>
   </div>
 </div>
 
-<!-- ===================== PART IV SEPARATOR ===================== -->
-<div class="part-separator">
-  <div class="part-bg">IV</div>
-  <div class="part-center">
-    <div class="part-label">Quatrième Partie</div>
-    <div class="part-number">IV</div>
-    <div class="part-title">Scale & Revenus</div>
-    <div class="part-line"></div>
+<!-- ═══════════ CH.08 — PAGE 154 ═══════════ -->
+<div class="P">
+  <div class="ph"><span class="ph-book">Digital Marketing Maîtrisé · 2026</span><span class="ph-chap">Ch. 08 · Tunnels de Vente</span></div>
+  <div class="pb">
+    <h2 class="st">Architecture qui <span class="g">Convertit</span></h2>
+    <p>Un tunnel de vente est un <strong>parcours conçu pour guider un visiteur inconnu jusqu'à l'achat</strong>, en éliminant les frictions à chaque étape. Contrairement à un site web classique qui donne trop de choix, un tunnel de vente a une seule direction : en avant.</p>
+    <h3 class="ss">Anatomie d'un Tunnel Haute Performance</h3>
+    <ol class="nl">
+      <li><strong>Page de capture (Squeeze Page) :</strong> Une seule action — laisser son email. Promesse claire, formulaire simple, zéro distraction. Taux de conversion cible : 30–60 %.</li>
+      <li><strong>Page de remerciement (Thank You Page) :</strong> Immédiatement après l'inscription. Présentation douce de l'offre tripwire ou redirection vers contenu. Souvent négligée, toujours stratégique.</li>
+      <li><strong>Page de vente (Sales Page) :</strong> Long format qui suit la structure PAS (Problème → Agitation → Solution). Témoignages, garantie, FAQ, bouton d'achat bien placé.</li>
+      <li><strong>Page de commande :</strong> Simple, rassurante, avec preuves de sécurité. Un seul produit par page de commande. Les order bumps augmentent le panier moyen de 20–40 %.</li>
+      <li><strong>Upsell / Downsell :</strong> Proposer une offre complémentaire immédiatement après l'achat. Le client est en mode achat — c'est le meilleur moment pour augmenter la valeur.</li>
+    </ol>
+    <div class="kc">
+      <h4>La Règle des Tripwires</h4>
+      <p>Un tripwire est une offre à très bas prix (7–27 €) qui transforme un prospect en acheteur. <strong>Un acheteur qui a acheté une fois est 10× plus susceptible d'acheter à nouveau.</strong> La première vente brise la barrière psychologique.</p>
+    </div>
+    <div class="g2">
+      <div class="gc"><div class="gc-n">Tunnel Simple</div><div class="gc-t">Lead Magnet → Email</div><p>Objectif : construire une liste. Idéal pour démarrer et tester une audience avant d'investir en pub.</p></div>
+      <div class="gc"><div class="gc-n">Tunnel Produit</div><div class="gc-t">Tripwire → Core → Upsell</div><p>Objectif : vendre et augmenter le panier. Structure classique pour produits digitaux entre 27 et 297 €.</p></div>
+    </div>
+  </div>
+  <div class="pf"><div class="footer-gold-bar"></div><span class="pf-num">154</span><span class="pf-site">vibcoding.com</span></div>
+</div>
+
+<!-- ═══════════ CH.09 OUVERTURE ═══════════ -->
+<div class="cop">
+  <div class="cop-stripe"></div>
+  <div class="cop-bgn">09</div>
+  <div class="cop-body">
+    <div class="cop-part">Partie III · Conversion & Systèmes</div>
+    <div class="cop-num">Chapitre Neuf</div>
+    <div class="cop-title">Copywriting<br>& <span class="a">Persuasion</span></div>
+    <div class="cop-rule"></div>
+    <div class="cop-quote">« Le copywriting est l'art de vendre avec des mots. Un bon copywriter génère plus de revenus en une page qu'une équipe commerciale en un mois. »</div>
   </div>
 </div>
 
-<!-- ===================== CHAPITRE 12 OPENER ===================== -->
-<div class="chapter-opener">
-  <div class="chapter-top-stripe"></div>
-  <div class="chapter-bg-number">12</div>
-  <div class="chapter-content">
-    <div class="chapter-part">Partie IV · Scale & Revenus</div>
-    <div class="chapter-num">Chapitre Douze</div>
-    <div class="chapter-title">Scaler son<br><span class="accent">Business</span></div>
-    <div class="chapter-divider"></div>
-    <div class="chapter-intro-quote">
-      « Un business à 6 chiffres et un business à 7 chiffres utilisent les mêmes canaux — mais des systèmes radicalement différents. »
+<!-- ═══════════ CH.09 — PAGE 174 ═══════════ -->
+<div class="P">
+  <div class="ph"><span class="ph-book">Digital Marketing Maîtrisé · 2026</span><span class="ph-chap">Ch. 09 · Copywriting & Persuasion</span></div>
+  <div class="pb">
+    <h2 class="st">Écrire pour <span class="g">Vendre</span></h2>
+    <p>Le copywriting est la compétence qui transforme des mots en argent. <strong>Chaque email, chaque page de vente, chaque publicité, chaque post sur les réseaux sociaux</strong> — tout est du copywriting. Maîtriser cette compétence, c'est avoir un avantage compétitif permanent.</p>
+    <h3 class="ss">Les Frameworks de Copywriting Incontournables</h3>
+    <div class="g2">
+      <div class="gc"><div class="gc-n">Framework 01</div><div class="gc-t">PAS</div><p><strong>Problème</strong> → Agiter la douleur → <strong>Solution</strong>. Le framework le plus simple et le plus efficace pour débuter.</p></div>
+      <div class="gc"><div class="gc-n">Framework 02</div><div class="gc-t">AIDA</div><p><strong>Attention</strong> → Intérêt → Désir → <strong>Action</strong>. Classique publicitaire qui fonctionne depuis 1898.</p></div>
+      <div class="gc"><div class="gc-n">Framework 03</div><div class="gc-t">Before / After / Bridge</div><p>Décrire la vie <strong>avant</strong>, la vie <strong>après</strong>, puis expliquer comment votre offre est le pont.</p></div>
+      <div class="gc"><div class="gc-n">Framework 04</div><div class="gc-t">STAR</div><p><strong>Situation</strong> → Tension → Action → <strong>Résultat</strong>. Idéal pour les études de cas et témoignages.</p></div>
     </div>
-  </div>
-</div>
-
-<!-- ===================== CHAPITRE 12 — PAGE 1 ===================== -->
-<div class="content-page">
-  <div class="page-header">
-    <span class="book-title">Digital Marketing Maîtrisé · 2026</span>
-    <span class="chapter-ref">Chapitre 12 · Scaler son Business</span>
-  </div>
-  <div class="page-body">
-
-    <h2 class="section-title">De 0 à <span class="gold">6 Chiffres</span> : Le Chemin</h2>
-
-    <p>La plupart des entrepreneurs stagnent entre 20 000€ et 80 000€ de chiffre d'affaires annuel. Ils travaillent dur, publient du contenu, envoient des emails — mais quelque chose bloque. Ce chapitre vous explique précisément <strong>ce qui bloque et comment le débloquer.</strong></p>
-
-    <div class="stats-grid">
-      <div class="stat-box">
-        <div class="stat-number">96%</div>
-        <div class="stat-label">Échec Précoce</div>
-        <div class="stat-desc">Des business en ligne ne dépassent pas 10 000€/an</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-number">3,2%</div>
-        <div class="stat-label">6 Chiffres</div>
-        <div class="stat-desc">Des entrepreneurs atteignent 100 000€+/an</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-number">0,8%</div>
-        <div class="stat-label">7 Chiffres</div>
-        <div class="stat-desc">Atteignent le million — avec les bons systèmes</div>
-      </div>
-    </div>
-
-    <h3 class="subsection">Le Framework de Croissance par Phases</h3>
-
-    <p>La croissance n'est pas linéaire. Elle se fait par paliers. Chaque palier a ses propres priorités, ses propres contraintes et ses propres leviers. Essayer de scaler sans avoir solidifié les bases du palier précédent est la cause principale des échecs.</p>
-
-    <div class="strategy-grid">
-      <div class="strategy-card">
-        <div class="strategy-card-num">Phase 1</div>
-        <div class="strategy-card-title">0 → 1 000€/mois</div>
-        <p>Valider l'offre. Obtenir les 10 premiers clients. Comprendre ce qui fonctionne avant d'investir en publicité.</p>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-card-num">Phase 2</div>
-        <div class="strategy-card-title">1 000 → 5 000€/mois</div>
-        <p>Construire un système de génération de leads prévisible. Automatiser les suivis. Stabiliser la conversion.</p>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-card-num">Phase 3</div>
-        <div class="strategy-card-title">5 000 → 20 000€/mois</div>
-        <p>Introduire la publicité payante. Optimiser les tunnels. Recruter les premières ressources externalisées.</p>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-card-num">Phase 4</div>
-        <div class="strategy-card-title">20 000€+/mois</div>
-        <p>Systématiser, déléguer, diversifier. Construire une équipe. Créer des actifs durables qui fonctionnent sans vous.</p>
-      </div>
-    </div>
-
-    <div class="pull-quote">
-      <p>Scaler c'est dupliquer ce qui fonctionne — pas expérimenter ce qui ne l'a pas encore prouvé. Beaucoup brûlent leur trésorerie sur de la publicité pour une offre qui n'a pas encore été validée manuellement.</p>
-      <div class="quote-author">Règle d'or du Scale</div>
-    </div>
-
-    <h3 class="subsection">Les 5 Leviers du Scale</h3>
-    <ul class="checklist">
-      <li><strong>Augmenter la valeur client (LTV) :</strong> Upsells, abonnements, gamme de produits. Plus votre LTV est haute, plus vous pouvez dépenser en acquisition.</li>
-      <li><strong>Baisser le coût d'acquisition (CAC) :</strong> Optimiser chaque étape du funnel, améliorer les créatifs publicitaires, affiner le ciblage.</li>
-      <li><strong>Augmenter le volume :</strong> Scaler les budgets publicitaires sur ce qui fonctionne. Tester de nouveaux canaux en parallèle.</li>
-      <li><strong>Automatiser les processus :</strong> Chaque tâche répétitive doit être automatisée. Votre temps doit aller à la stratégie et aux décisions à forte valeur.</li>
-      <li><strong>Construire une équipe :</strong> Déléguer l'exécution pour vous concentrer sur la vision. Recruter sur la base des compétences, pas de la disponibilité.</li>
+    <h3 class="ss">Les 10 Règles du Copywriting Qui Vend</h3>
+    <ul class="cl">
+      <li><strong>Parlez à une personne, pas à une foule :</strong> Écrivez comme si vous parliez à un seul individu. "Vous" plutôt que "vous tous".</li>
+      <li><strong>Titres irrésistibles :</strong> 80 % des lecteurs lisent le titre — seulement 20 % lisent la suite. Votre titre est la publicité de votre texte.</li>
+      <li><strong>Bénéfices, pas caractéristiques :</strong> Ne dites pas "notre logiciel a 50 fonctionnalités". Dites "économisez 10h par semaine".</li>
+      <li><strong>Spécificité = crédibilité :</strong> "Nos clients ont généré 127 leads en 23 jours" est plus convaincant que "de très bons résultats".</li>
+      <li><strong>Créer de l'urgence réelle :</strong> Deadlines, quantités limitées. Jamais de fausse urgence — cela détruit la confiance.</li>
     </ul>
-
+    <div class="hl">⚡ La ligne d'objet d'un email est le copywriting le plus important que vous écrirez. Testez-en 3 versions différentes systématiquement.</div>
   </div>
-  <div class="page-footer">
-    <div class="footer-gold-bar"></div>
-    <span class="page-number">252</span>
-    <span class="footer-text">vibcoding.com</span>
+  <div class="pf"><div class="footer-gold-bar"></div><span class="pf-num">174</span><span class="pf-site">vibcoding.com</span></div>
+</div>
+
+<!-- ═══════════ PARTIE IV ═══════════ -->
+<div class="psep">
+  <div class="psep-bg">IV</div>
+  <div class="psep-c">
+    <div class="psep-lbl">Quatrième Partie</div>
+    <div class="psep-num">IV</div>
+    <div class="psep-ttl">Scale & Revenus</div>
+    <div class="psep-rule"></div>
   </div>
 </div>
 
-<!-- ===================== RESOURCES PAGE ===================== -->
-<div class="back-page">
-  <div class="toc-header" style="margin-bottom:8mm;">
-    <div class="section-label">Annexes</div>
-    <h2 class="section-title">Ressources & <span class="gold">Outils</span></h2>
-  </div>
-
-  <h3 class="subsection">Outils Recommandés par Catégorie</h3>
-
-  <table class="data-table">
-    <thead>
-      <tr>
-        <th>Catégorie</th>
-        <th>Outil</th>
-        <th>Usage</th>
-        <th>Prix</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td><strong>Email</strong></td><td>ActiveCampaign</td><td>Automation avancée, CRM intégré</td><td class="gold">29€+/mois</td></tr>
-      <tr><td><strong>Email</strong></td><td>MailerLite</td><td>Idéal pour débuter, interface intuitive</td><td class="gold">Gratuit</td></tr>
-      <tr><td><strong>Tunnels</strong></td><td>ClickFunnels 2.0</td><td>Tunnels, membership, affiliate</td><td class="gold">97€+/mois</td></tr>
-      <tr><td><strong>Tunnels</strong></td><td>Systeme.io</td><td>Solution tout-en-un en français</td><td class="gold">Gratuit</td></tr>
-      <tr><td><strong>SEO</strong></td><td>Ahrefs</td><td>Recherche de mots-clés, backlinks</td><td class="gold">99€+/mois</td></tr>
-      <tr><td><strong>SEO</strong></td><td>SEMrush</td><td>Audit technique, position tracking</td><td class="gold">119€+/mois</td></tr>
-      <tr><td><strong>Pub</strong></td><td>Meta Ads Manager</td><td>Facebook & Instagram Ads</td><td class="gold">Variable</td></tr>
-      <tr><td><strong>Analytics</strong></td><td>Google Analytics 4</td><td>Suivi du trafic et conversions</td><td class="gold">Gratuit</td></tr>
-      <tr><td><strong>IA</strong></td><td>Claude (Anthropic)</td><td>Copywriting, stratégie, contenu</td><td class="gold">20€/mois</td></tr>
-      <tr><td><strong>Design</strong></td><td>Canva Pro</td><td>Visuels, réseaux sociaux, supports</td><td class="gold">13€/mois</td></tr>
-    </tbody>
-  </table>
-
-  <div class="section-divider" style="margin: 7mm 0;">
-    <div class="line"></div>
-    <div class="diamond">◆</div>
-    <div class="line"></div>
-  </div>
-
-  <h3 class="subsection">Lectures Complémentaires Recommandées</h3>
-
-  <ul class="checklist">
-    <li><strong>$100M Offers</strong> — Alex Hormozi · Créer une offre irrésistible</li>
-    <li><strong>Building a StoryBrand</strong> — Donald Miller · Clarifier son message marketing</li>
-    <li><strong>Expert Secrets</strong> — Russell Brunson · Construire son expertise en ligne</li>
-    <li><strong>Influence</strong> — Robert Cialdini · Les principes de la persuasion</li>
-    <li><strong>Hooked</strong> — Nir Eyal · Concevoir des produits addictifs</li>
-    <li><strong>Traction</strong> — Gabriel Weinberg · 19 canaux d'acquisition expliqués</li>
-  </ul>
-
-  <div class="info-box" style="margin-top:8mm;">
-    <div class="info-box-title">Bonus : Accès à la Communauté</div>
-    <p>En tant que lecteur de cet ouvrage, vous avez accès à notre espace privé dédié aux praticiens du digital marketing. Partagez vos avancées, posez vos questions, et connectez-vous avec des entrepreneurs qui appliquent ces stratégies au quotidien. Rejoignez-nous sur <strong>vibcoding.com/communaute</strong></p>
+<!-- ═══════════ CH.10 OUVERTURE ═══════════ -->
+<div class="cop">
+  <div class="cop-stripe"></div>
+  <div class="cop-bgn">10</div>
+  <div class="cop-body">
+    <div class="cop-part">Partie IV · Scale & Revenus</div>
+    <div class="cop-num">Chapitre Dix</div>
+    <div class="cop-title">Intelligence<br><span class="a">Artificielle</span></div>
+    <div class="cop-rule"></div>
+    <div class="cop-quote">« L'IA ne remplace pas le marketeur. Elle remplace le marketeur qui n'utilise pas l'IA. »</div>
   </div>
 </div>
 
-<!-- ===================== BACK COVER ===================== -->
-<div class="back-cover">
-  <div class="back-cover-left-band"></div>
+<!-- ═══════════ CH.10 — PAGE 196 ═══════════ -->
+<div class="P">
+  <div class="ph"><span class="ph-book">Digital Marketing Maîtrisé · 2026</span><span class="ph-chap">Ch. 10 · Intelligence Artificielle</span></div>
+  <div class="pb">
+    <h2 class="st">Automatiser <span class="g">& Amplifier</span></h2>
+    <p>L'IA a radicalement transformé le marketing digital en l'espace de 24 mois. En 2026, <strong>les marketeurs qui intègrent l'IA dans leur workflow travaillent 3× plus vite</strong> et produisent un contenu de meilleure qualité. L'IA n'est plus un avantage compétitif — c'est un prérequis.</p>
+    <div class="sr">
+      <div class="sb"><div class="sb-n">78 %</div><div class="sb-l">Adoption IA</div><div class="sb-d">Des équipes marketing top utilisent l'IA quotidiennement</div></div>
+      <div class="sb"><div class="sb-n">×3,2</div><div class="sb-l">Productivité</div><div class="sb-d">Gain moyen de productivité avec les bons outils IA</div></div>
+      <div class="sb"><div class="sb-n">62 %</div><div class="sb-l">Réduction Coûts</div><div class="sb-d">Baisse des coûts de production de contenu</div></div>
+    </div>
+    <h3 class="ss">Les Cas d'Usage IA en Marketing</h3>
+    <ul class="cl">
+      <li><strong>Création de contenu :</strong> Rédaction d'emails, d'articles, de scripts vidéo, de posts réseaux sociaux. L'IA produit un premier jet — vous affinez avec votre voix et expertise.</li>
+      <li><strong>Recherche & Analyse :</strong> Analyse concurrentielle, recherche de mots-clés, étude de marché. Des tâches qui prenaient des heures sont faites en minutes.</li>
+      <li><strong>Personnalisation à l'échelle :</strong> Emails personnalisés selon le comportement, publicités dynamiques, recommandations de produits. L'IA permet une hyper-personnalisation impossible manuellement.</li>
+      <li><strong>Service client automatisé :</strong> Chatbots IA qui répondent aux questions 24h/24, qualifient les prospects et réduisent le temps de réponse à zéro.</li>
+      <li><strong>Tests & Optimisation :</strong> A/B testing automatisé, optimisation des enchères publicitaires, prédiction des performances des créatifs.</li>
+    </ul>
+    <div class="ib"><div class="ib-t">Outils IA Recommandés</div><p><strong>Claude (Anthropic)</strong> pour le copywriting et la stratégie · <strong>Midjourney / DALL-E</strong> pour les visuels · <strong>ElevenLabs</strong> pour la voix · <strong>Runway</strong> pour la vidéo · <strong>Make.com</strong> pour l'automatisation des workflows.</p></div>
+  </div>
+  <div class="pf"><div class="footer-gold-bar"></div><span class="pf-num">196</span><span class="pf-site">vibcoding.com</span></div>
+</div>
 
-  <div class="back-cover-top">
-    <div class="back-cover-title">
-      Digital Marketing <span class="gold">Maîtrisé</span><br>
-      <span style="font-size:14pt; font-weight:400; color:var(--white-dim); font-style:italic;">Guide Stratégique Premium 2026</span>
+<!-- ═══════════ CH.11 OUVERTURE ═══════════ -->
+<div class="cop">
+  <div class="cop-stripe"></div>
+  <div class="cop-bgn">11</div>
+  <div class="cop-body">
+    <div class="cop-part">Partie IV · Scale & Revenus</div>
+    <div class="cop-num">Chapitre Onze</div>
+    <div class="cop-title">Analyse<br>& <span class="a">Données</span></div>
+    <div class="cop-rule"></div>
+    <div class="cop-quote">« Sans données, vous n'êtes qu'une autre personne avec une opinion. Mesurez tout ce qui compte. »</div>
+  </div>
+</div>
+
+<!-- ═══════════ CH.11 — PAGE 216 ═══════════ -->
+<div class="P">
+  <div class="ph"><span class="ph-book">Digital Marketing Maîtrisé · 2026</span><span class="ph-chap">Ch. 11 · Analyse & Données</span></div>
+  <div class="pb">
+    <h2 class="st">Décider avec <span class="g">les Chiffres</span></h2>
+    <p>Les décisions basées sur les données surpassent les décisions basées sur l'intuition dans <strong>87 % des cas mesurés</strong>. Pourtant, la majorité des entrepreneurs regardent leurs statistiques sans savoir quoi en faire. Ce chapitre vous donne le cadre pour transformer vos données en décisions.</p>
+    <h3 class="ss">Les KPIs Essentiels par Canal</h3>
+    <table class="dt">
+      <thead><tr><th>Canal</th><th>KPI Principal</th><th>KPI Secondaire</th><th>Objectif</th></tr></thead>
+      <tbody>
+        <tr><td><strong>SEO</strong></td><td>Trafic organique</td><td>Position moyenne</td><td class="g">+20 %/trim.</td></tr>
+        <tr><td><strong>Pub Payante</strong></td><td>ROAS</td><td>CPA (coût/acquisition)</td><td class="g">ROAS ≥ 3×</td></tr>
+        <tr><td><strong>Email</strong></td><td>Taux d'ouverture</td><td>Taux de clic (CTR)</td><td class="g">≥ 25 % / ≥ 3 %</td></tr>
+        <tr><td><strong>Site Web</strong></td><td>Taux de conversion</td><td>Taux de rebond</td><td class="g">≥ 2,5 %</td></tr>
+        <tr><td><strong>Réseaux Sociaux</strong></td><td>Engagement Rate</td><td>Reach organique</td><td class="g">≥ 3 %</td></tr>
+      </tbody>
+    </table>
+    <h3 class="ss">Le Cycle d'Amélioration Continue</h3>
+    <ol class="nl">
+      <li><strong>Mesurer :</strong> Installer Google Analytics 4, pixel Meta, tracking UTM sur tous les liens. Vous ne pouvez améliorer que ce que vous mesurez.</li>
+      <li><strong>Analyser :</strong> Regarder les données hebdomadairement. Identifier les pages qui convertissent le mieux, les emails les plus ouverts, les sources de trafic les plus rentables.</li>
+      <li><strong>Formuler une hypothèse :</strong> "Si je change X, Y devrait s'améliorer de Z %." Toujours tester une variable à la fois.</li>
+      <li><strong>Tester :</strong> A/B test sur les titres, les visuels, les CTAs, les pages de vente. Laisser tourner suffisamment longtemps pour avoir de la significativité statistique.</li>
+      <li><strong>Décider & Implémenter :</strong> Conserver ce qui performe, abandonner ce qui ne fonctionne pas. Puis recommencer.</li>
+    </ol>
+    <div class="hl">⚡ Règle d'or : ne jamais prendre de décision sur moins de 100 clics ou 1 000 impressions — les données sont trop peu significatives.</div>
+  </div>
+  <div class="pf"><div class="footer-gold-bar"></div><span class="pf-num">216</span><span class="pf-site">vibcoding.com</span></div>
+</div>
+
+<!-- ═══════════ CH.12 OUVERTURE ═══════════ -->
+<div class="cop">
+  <div class="cop-stripe"></div>
+  <div class="cop-bgn">12</div>
+  <div class="cop-body">
+    <div class="cop-part">Partie IV · Scale & Revenus</div>
+    <div class="cop-num">Chapitre Douze</div>
+    <div class="cop-title">Scaler son<br><span class="a">Business</span></div>
+    <div class="cop-rule"></div>
+    <div class="cop-quote">« Un business à 6 chiffres et un business à 7 chiffres utilisent les mêmes canaux — mais des systèmes radicalement différents. »</div>
+  </div>
+</div>
+
+<!-- ═══════════ CH.12 — PAGE 236 ═══════════ -->
+<div class="P">
+  <div class="ph"><span class="ph-book">Digital Marketing Maîtrisé · 2026</span><span class="ph-chap">Ch. 12 · Scaler son Business</span></div>
+  <div class="pb">
+    <h2 class="st">De 0 à <span class="g">6 Chiffres</span> : Le Chemin</h2>
+    <p>La plupart des entrepreneurs stagnent entre 20 000 € et 80 000 € annuels. Ils travaillent dur, publient du contenu, envoient des emails — mais quelque chose bloque. Ce chapitre explique précisément <strong>ce qui bloque et comment le débloquer</strong>.</p>
+    <div class="sr">
+      <div class="sb"><div class="sb-n">96 %</div><div class="sb-l">Échec Précoce</div><div class="sb-d">Des business en ligne ne dépassent pas 10 000 €/an</div></div>
+      <div class="sb"><div class="sb-n">3,2 %</div><div class="sb-l">6 Chiffres</div><div class="sb-d">Atteignent 100 000 €+ par an</div></div>
+      <div class="sb"><div class="sb-n">0,8 %</div><div class="sb-l">7 Chiffres</div><div class="sb-d">Atteignent le million avec les bons systèmes</div></div>
     </div>
-    <div class="back-cover-desc">
-      Ce guide réunit 12 chapitres de stratégies, frameworks et outils concrets pour construire, scaler et rentabiliser un business digital solide en 2026 — que vous partiez de zéro ou que vous cherchiez à franchir un nouveau palier.
+    <h3 class="ss">Le Framework de Croissance par Phases</h3>
+    <div class="g2">
+      <div class="gc"><div class="gc-n">Phase 1</div><div class="gc-t">0 → 1 000 €/mois</div><p>Valider l'offre. Obtenir les 10 premiers clients. Comprendre ce qui fonctionne avant d'investir en publicité.</p></div>
+      <div class="gc"><div class="gc-n">Phase 2</div><div class="gc-t">1 000 → 5 000 €/mois</div><p>Construire un système de leads prévisible. Automatiser les suivis. Stabiliser la conversion.</p></div>
+      <div class="gc"><div class="gc-n">Phase 3</div><div class="gc-t">5 000 → 20 000 €/mois</div><p>Introduire la publicité payante. Optimiser les tunnels. Recruter les premières ressources externalisées.</p></div>
+      <div class="gc"><div class="gc-n">Phase 4</div><div class="gc-t">20 000 €+/mois</div><p>Systématiser, déléguer, diversifier. Construire une équipe. Créer des actifs durables.</p></div>
     </div>
-    <ul class="back-cover-features">
+    <h3 class="ss">Les 5 Leviers du Scale</h3>
+    <ul class="cl">
+      <li><strong>Augmenter la LTV :</strong> Upsells, abonnements, gamme de produits. Plus votre LTV est haute, plus vous pouvez dépenser en acquisition.</li>
+      <li><strong>Baisser le CAC :</strong> Optimiser chaque étape du funnel, améliorer les créatifs publicitaires, affiner le ciblage.</li>
+      <li><strong>Augmenter le volume :</strong> Scaler les budgets sur ce qui fonctionne. Tester de nouveaux canaux en parallèle.</li>
+      <li><strong>Automatiser les processus :</strong> Chaque tâche répétitive doit être automatisée. Votre temps va à la stratégie uniquement.</li>
+      <li><strong>Construire une équipe :</strong> Déléguer l'exécution pour se concentrer sur la vision. Recruter sur les compétences, pas la disponibilité.</li>
+    </ul>
+  </div>
+  <div class="pf"><div class="footer-gold-bar"></div><span class="pf-num">236</span><span class="pf-site">vibcoding.com</span></div>
+</div>
+
+<!-- ═══════════ ANNEXES — PAGE 258 ═══════════ -->
+<div class="P">
+  <div class="ph"><span class="ph-book">Digital Marketing Maîtrisé · 2026</span><span class="ph-chap">Annexes · Ressources & Outils</span></div>
+  <div class="pb">
+    <h2 class="st">Ressources <span class="g">& Outils</span></h2>
+    <h3 class="ss">Outils Recommandés par Catégorie</h3>
+    <table class="dt">
+      <thead><tr><th>Catégorie</th><th>Outil</th><th>Usage</th><th>Tarif</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Email</strong></td><td>ActiveCampaign</td><td>Automation avancée, CRM intégré</td><td class="g">29 €+/mois</td></tr>
+        <tr><td><strong>Email</strong></td><td>MailerLite</td><td>Idéal pour débuter, interface simple</td><td class="g">Gratuit</td></tr>
+        <tr><td><strong>Tunnels</strong></td><td>Systeme.io</td><td>Solution tout-en-un en français</td><td class="g">Gratuit</td></tr>
+        <tr><td><strong>Tunnels</strong></td><td>ClickFunnels 2.0</td><td>Tunnels, membership, affiliate</td><td class="g">97 €+/mois</td></tr>
+        <tr><td><strong>SEO</strong></td><td>Ahrefs</td><td>Mots-clés, backlinks, audit</td><td class="g">99 €+/mois</td></tr>
+        <tr><td><strong>Analytics</strong></td><td>Google Analytics 4</td><td>Trafic, conversions, comportement</td><td class="g">Gratuit</td></tr>
+        <tr><td><strong>IA Copwriting</strong></td><td>Claude (Anthropic)</td><td>Textes, stratégie, analyse</td><td class="g">20 €/mois</td></tr>
+        <tr><td><strong>IA Visuels</strong></td><td>Midjourney</td><td>Images, publicités, couvertures</td><td class="g">10 €+/mois</td></tr>
+        <tr><td><strong>Design</strong></td><td>Canva Pro</td><td>Visuels réseaux sociaux, supports</td><td class="g">13 €/mois</td></tr>
+        <tr><td><strong>Automation</strong></td><td>Make.com</td><td>Connexion apps, workflows auto</td><td class="g">9 €+/mois</td></tr>
+      </tbody>
+    </table>
+    <h3 class="ss">Lectures Complémentaires</h3>
+    <ul class="cl">
+      <li><strong>$100M Offers</strong> — Alex Hormozi · Créer une offre irrésistible</li>
+      <li><strong>Building a StoryBrand</strong> — Donald Miller · Clarifier son message marketing</li>
+      <li><strong>Expert Secrets</strong> — Russell Brunson · Construire son expertise en ligne</li>
+      <li><strong>Influence</strong> — Robert Cialdini · Les 6 principes de la persuasion</li>
+      <li><strong>Traction</strong> — Gabriel Weinberg · 19 canaux d'acquisition expliqués</li>
+    </ul>
+  </div>
+  <div class="pf"><div class="footer-gold-bar"></div><span class="pf-num">258</span><span class="pf-site">vibcoding.com</span></div>
+</div>
+
+<!-- ═══════════ 4e DE COUVERTURE ═══════════ -->
+<div class="bcov">
+  <div class="bcov-spine"></div>
+  <div>
+    <div class="bcov-title">Digital Marketing <span class="g">Maîtrisé</span></div>
+    <div class="bcov-sub">Ce guide réunit 12 chapitres de stratégies, frameworks et outils concrets pour construire, scaler et rentabiliser un business digital solide en 2026 — que vous partiez de zéro ou que vous cherchiez à franchir un nouveau palier.</div>
+    <ul class="bcf">
       <li>Stratégies SEO, publicité payante et réseaux sociaux</li>
       <li>Systèmes d'email automation et tunnels de vente</li>
-      <li>Psychologie de l'acheteur et techniques de copywriting</li>
+      <li>Psychologie de l'acheteur et copywriting</li>
       <li>Intégration de l'IA dans votre workflow marketing</li>
       <li>Framework de croissance de 0 à 6 chiffres</li>
       <li>Tableau d'outils recommandés par catégorie</li>
     </ul>
   </div>
-
   <div>
-    <div class="back-cover-price-block">
-      <div class="price-label">Prix de vente</div>
-      <div class="price">47 €</div>
+    <div class="bcov-price">
+      <div class="pl">Prix de vente conseillé</div>
+      <div class="pv">47 €</div>
     </div>
-
-    <div class="back-cover-bottom">
-      <div class="back-cover-isbn">
-        Édition numérique<br>
-        <strong>vibcoding.com</strong>
-      </div>
-      <div style="text-align:right; padding-right:0;">
-        <div style="font-size:7pt; color:var(--white-muted); letter-spacing:2px; text-transform:uppercase; margin-bottom:2mm;">VIBCODING Studio</div>
-        <div style="font-family:'Playfair Display',serif; font-size:13pt; color:var(--gold);">2026</div>
-      </div>
+    <div class="bcov-foot">
+      <div class="ed">Édition numérique premium<br><strong>vibcoding.com</strong></div>
+      <div class="yr">2026</div>
     </div>
   </div>
 </div>
